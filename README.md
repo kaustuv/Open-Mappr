@@ -1,6 +1,6 @@
 ## Synopsis
 
-This Software was built for Vibrant Data Labs by Brainvise as a tool for Eric L. Berlow PhD. The software takes users through 3 stages. Issue Listing, Issue Curation, and Remote Link Mapping. Currently the software is in an extremely alpha phase, but we plan on organizing and restructuring the software and opening it up with an API in the near future. 
+This Software was built for Vibrant Data Labs by Brainvise as a collaborative network mapping tool for Eric L. Berlow. The software takes users through 3 stages. Node Listing, Node Curation, and Remote Link Mapping. Currently the software is in an extremely alpha phase, but we plan on organizing and restructuring the software and opening it up with an API in the near future. We are using a simple BSD license because we realize you might want to keep some modifications proprietary, but we strongly encourage you to share alike if you can. 
 
 ## Installation
 
