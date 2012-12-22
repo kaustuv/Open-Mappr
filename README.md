@@ -15,6 +15,7 @@ Upload all files located in the "Open Mappr" directory to the root directory for
 Visit the domain where you've uploaded the files and login with the following:
 
 user: new@vibrantdatalabs.org
+
 password: abcd1234
 
 Create a new Admin User. Check your email to confirm registration for this new admin user and finish setting up your account by visiting the link in the email. 
@@ -28,6 +29,7 @@ Coming Soon.
 ## Contributors
 
 Vibrant Data Labs http://vibrantdatalabs.org
+
 Brainvise http://brainvise.com
 
 ## License
