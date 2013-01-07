@@ -21,7 +21,7 @@ This project was built using Codeigniter (a php framework) and jQuery (a javascr
 
 The mysql database is located in the root folder and named "mappr_db.sql". Install this database on your server.
 
-Edit the "database.php" file located in the "application->config" folder to reflect the name of the newly created database as well as your login information. Specifically edit the fields corresponding to "<USER NAME>", "<USER PASSWORD>", and "<DATABASE NAME>".
+Edit the "database.php" file located in the "application->config" folder to reflect the name of the newly created database as well as your login information. Specifically edit the fields corresponding to "&lt;USER NAME&gt;", "&lt;USER PASSWORD&gt;", and "&lt;DATABASE NAME&gt;".
 
 Upload all files located in the "Open Mappr" directory to the root directory for the domain.
 
