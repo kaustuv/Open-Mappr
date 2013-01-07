@@ -1,6 +1,15 @@
 ## Synopsis
 
-This Software was built for Vibrant Data Labs by Brainvise as a collaborative network mapping tool for Eric L. Berlow. The software takes users through 3 stages. Node Listing, Node Curation, and Remote Link Mapping. Currently the software is in an extremely alpha phase, but we plan on organizing and restructuring the software and opening it up with an API in the near future. We are using a simple BSD license because we realize you might want to keep some modifications proprietary, but we strongly encourage you to share alike if you can. 
+"Open Mappr" is a product of Vibrant Data Labs as part of a collaborative effort with: 
+
+Eric L. Berlow (Vibrant Data Labs) - original idea and approach and research lead
+David Gurman (Brainvise) - creative direction and design
+Sundev Lohr (Brainvise) - programming and development
+Brandon Barnett, Richard Beckwith, John Sherry (Intel Labs) - advice and research partnership
+
+Open Mappr software enables multiple independent users to collaboratively build a network. The software takes users through 3 stages. Node Listing (where multiple users can submit entities to be used as nodes in the network), Node Curation (where the raw submitted node list can be cleaned up and edited), and Remote Link Mapping (where multiple users can independently select a subset of the nodes to focus on and  map directed links between them). The Node Listing and Node Curation stages can be skipped by simply uploading a list of nodes and node attributes from a spreadsheet. Open Mappr outputs the data in different formats to be easily imported into standard network visualization and analysis packages (e.g., Gephi).  
+
+Currently the software is in an extremely alpha phase, but we plan on organizing and restructuring the software and opening it up with an API in the near future. We are using a simple BSD license because we realize you might want to keep some modifications proprietary, but we strongly encourage you to share alike if you can. 
 
 ## Installation
 
