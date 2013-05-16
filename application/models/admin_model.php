@@ -131,7 +131,7 @@ class Admin_model extends CI_Model {
 
 			$this->email->subject('Mappr User Registration');
 			$this->email->message("You have been registered as an Administrator for Vibrant Data's remote facilitation software.\n" .
-															"To complete your registration, click the link below: " . base_url() . "login/register/" . urlencode($nUE) . '/' . urlencode($enc_pass) . '\n\n' . 
+															"To complete your registration, click the link below: " . base_url() . "login/register/" . urlencode($nUE) . '/' . urlencode($enc_pass) . ' \n\n' . 
 															"To login again once you have registered, please visit the following url: " . base_url());	
 
 			$this->email->send();
