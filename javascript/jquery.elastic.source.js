@@ -127,6 +127,13 @@
 				
 				// Hide scrollbars
 				$textarea.css({'overflow':'hidden'});
+
+				//unbind before binding in case already bound
+				//CUSTOMIZED FOR MAPPR
+				$textarea.unbind('keyup change cut paste resize update');
+				$(window).unbind('resize',setTwinWidth);
+				$textarea.unbind('blur',setCompact);
+
 				
 				// Update textarea size on keyup, change, cut and paste
 				$textarea.bind('keyup change cut paste', function(){
@@ -139,7 +146,9 @@
 				$textarea.bind('update', update);
 				
 				// Compact textarea on blur
-				$textarea.bind('blur',function(){
+				$textarea.bind('blur',setCompact);
+
+				function setCompact() {
 					if($twin.height() < maxheight){
 						if($twin.height() > minheight) {
 							$textarea.height($twin.height());
@@ -147,7 +156,7 @@
 							$textarea.height(minheight);
 						}
 					}
-				});
+				}
 				
 				// And this line is to catch the browser paste event
 				$textarea.bind('input paste',function(e){ setTimeout( update, 250); });				

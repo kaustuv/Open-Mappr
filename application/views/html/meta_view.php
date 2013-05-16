@@ -1,4 +1,4 @@
-<title>VIBRANT DATA LABS<?php echo $page_title ?></title>
+<title>MAPPR<?php echo $page_title ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="<?php echo site_url()?>css/tiny_mce.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo site_url()?>css/style.css?<?php echo time();?>" />

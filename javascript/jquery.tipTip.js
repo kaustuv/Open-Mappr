@@ -179,6 +179,7 @@
 
 					if(opts.forceCenter)
 					{
+						tiptip_arrow.hide();
 						tiptip_holder.css("margin-top",$(window).height()/2-tiptip_holder.height()/2 + $(window).scrollTop());
 					}
 					

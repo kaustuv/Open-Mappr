@@ -50,6 +50,7 @@ class Links extends User_Controller {
 		$this->view_data['total_froms'] = $this->Links_model->get_total_froms();
 		$this->view_data['link_mapping_instructions'] = $this->Links_model->get_link_mapping_instructions();
 		$this->view_data['video_embed'] = $this->Links_model->get_video_instructions();
+		$this->view_data['admin_email'] = $this->Links_model->get_admin_email();
 		//get tags for all nodes in projects
 		$this->view_data['tags'] = $this->Links_model->get_project_node_tags();
 		$this->load_container_with('link_mapping_view','LINK MAPPING FOR '.strtoupper($project_name));
@@ -162,27 +163,8 @@ class Links extends User_Controller {
 		print_r($this->Links_model->get_nodes_by_tags($subset_tags));
 	}
 
-	//export to excel sheet as per Eric's format
-	//DOESN'T WORK
-	public function export_to_excel($type = 'links')
-	{
-    $this->load->helper('excel');
-		if($type == 'nodes')
-		{
-			$this->Links_model->set_up_nodes();
-			
-		} else if($type == 'links')
-		{
-			$this->Links_model->set_up_links();
-		}
 
-	    $query = $this->db->get('userLinks');
-	    $fd = $this->db->field_data('userLinks');
-	    to_excel($query, $fd, 'user_links');
-	}
-
-
-	public function export_links_to_excel()
+	public function export_links_to_csv($pId)
 	{
 		$fields = array('id',
 										'issueFromId',
@@ -199,7 +181,6 @@ class Links extends User_Controller {
 										'tot_notes',
 										'notes');
 
-    $pId = 8;
 
 		//get total number of users that have at least chosen from nodes
 		$this->db->where('projectId',$pId);
@@ -308,13 +289,20 @@ class Links extends User_Controller {
 			}
 
 			//proportion
-			$resultAR[$ind]['propTotVotes'] = $resultAR[$ind]['totVotes']/$resultAR[$ind]['totFocalEvaluated'];
+			if($resultAR[$ind]['totFocalEvaluated'] == 0)
+			{
+				$resultAR[$ind]['propTotVotes'] = 0;
+			} else
+			{
+				$resultAR[$ind]['propTotVotes'] = $resultAR[$ind]['totVotes']/$resultAR[$ind]['totFocalEvaluated'];
+			}
 
 		}
-		//print_r($resultAR);
-    //$this->load->helper('excel');
-		//to_excel($query, $fd, 'user_links');
-		$this->create_excel($resultAR,$fields,'links');
+
+		//convert to csv
+		$csv =& $this->csv_from_result($fields,$resultAR);
+		$this->load->helper('download');
+		force_download('links.csv', $csv);
 
 	}
 
@@ -465,9 +453,8 @@ class Links extends User_Controller {
 		$this->create_excel($resultAR,$fields,'nodes');
 	}
 
-	public function export_users_to_excel()
+	public function export_users_to_csv($pId)
 	{
-		$pId = 8;
 		$fields = array('id',
 										'email',
 										'first_name',
@@ -482,8 +469,11 @@ class Links extends User_Controller {
 										'new_issues');
 
 		$resultAR = array();
-		//$this->db->where('projectId',$pId);
-		$query = $this->db->get('users');
+		$this->db->from('usersProjects');
+		$this->db->join('users', 'usersProjects.userId = users.user_id');
+		$this->db->where('projectId',$pId);
+		$query = $this->db->get();
+
 		foreach($query->result() as $row)
 		{
 			$resultAR[] = array('id'=>'',
@@ -543,7 +533,44 @@ class Links extends User_Controller {
 
 
 		}
-		$this->create_excel($resultAR,$fields,'users');
+		//convert to csv
+		$csv =& $this->csv_from_result($fields,$resultAR);
+		$this->load->helper('download');
+		force_download('users.csv', $csv);
+	}
+
+	//custom copy from DB_util so I can modify for adding columns
+	function csv_from_result($headers, $results, $delim = ",", $newline = "\n", $enclosure = '"')
+	{
+		$out = '';
+
+		// First generate the headings from the table column names
+		foreach ($headers as $name)
+		{
+			$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $name).$enclosure.$delim;
+		}
+
+		$out = rtrim($out);
+		$out .= $newline;
+
+		// Next blast through the result array and build out the rows
+		foreach ($results as $row)
+		{
+			//sort row according to headers
+			$new_row = array();
+			foreach($headers as $name)
+			{
+				$new_row[$name] = $row[$name];
+			}
+			foreach ($new_row as $item)
+			{
+				$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $item).$enclosure.$delim;
+			}
+			$out = rtrim($out);
+			$out .= $newline;
+		}
+
+		return $out;
 	}
 
 	//create json feed of links

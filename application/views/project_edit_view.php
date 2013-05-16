@@ -59,6 +59,14 @@ $(document).ready(function() {
   })
 
 
+  //for showing error message if trying to download csv that doesn't
+  //correspond to current project state
+  $('.csv-error').click(function() {
+    alert($(this).attr('title'));
+    return false;
+  })
+
+
 
 
   
@@ -73,48 +81,27 @@ $attributes = array('class' => 'wide-form', 'id' => 'project-form');
 echo form_open('projects/edit/' . $current_project . '/#scroll', $attributes); ?>
 <h1>Project Edit: <?php echo $default['name']?></h1>
 <div class='input-box-wide input-box light-box'>
+  <?php if(isset($form_errors)):?>
+  <div style='margin-top:-20px;'></div>
+  <label class='error'><?php echo $form_errors;?></label>
+  <?php endif;?>
+  <!--SUBMIT BUTTON-->
+  <?php $data = array(
+    'class'=>'submit-but inside-box-submit-top',
+    'name'=>'submit',
+    'value'=>'Save');
+    ?>
+  <?php echo form_submit($data); ?><div class='but-right'></div>
   <!--NAME-->
     <label for="name">Project Name</label>
     <?php echo form_error('name'); ?>
     <input id='project-name' class='text-input text-input-wide' type='text' name='name' value='<?php echo $default['name']?>'/>
     <div class='clearer'></div>
-   <!--QUESTION-->
-    <label for="question">Question</label>
-    <?php echo form_error('question'); ?>
-    <?php echo form_textarea( array( 'name' => 'question', 'rows' => '5', 'cols' => '80', 'class' => 'tinymce', 'value' => set_value('question',$default['question']) ) )?>
-    <div class='clearer'></div>
-    <br/>
-  <!--DESCRIPTION-->
-    <label for="description">Description/Background Information</label>
-    <?php echo form_error('description'); ?>
-    <?php echo form_textarea( array( 'class'=>'tinymce', 'name' => 'description', 'rows' => '5', 'cols' => '80', 'value' => set_value('description',$default['description']) ) )?>
-    <div class='clearer'></div>
-    <br/>
-  <!--LINK MAPPING INSTRUCTIONS-->
-    <label for="description">Instructions for Link Mapping</label>
-    <?php echo form_error('link_mapping_info'); ?>
-    <?php echo form_textarea( array( 'class'=>'tinymce', 'name' => 'link_mapping_info', 'rows' => '5', 'cols' => '80', 'value' => set_value('link_mapping_info',$default['link_mapping_info']) ) )?>
-    <div class='clearer'></div>
-    <br/>
-  <!--TAG SEED-->
-    <label>Tag Seed (separate tags by commas)</label>
-    <?php echo form_textarea( array('id'=>'tag-seed', 'name' => 'tag_seed', 'rows' => '5', 'cols' => '80', 'value' => set_value('tag_seed',$default['tag_seed']) ) )?>
-    <div class='clearer'></div>
-    <br/>
-  <!--INTRO VIDEO EMBED-->
-    <label>Issue Submission Video Embed Code (Copy and Paste from Youtube or Vimeo)</label>
-    <?php echo form_textarea( array('name' => 'video_embed', 'rows' => '5', 'cols' => '80', 'value' => $default['video_embed'] ) )?>
-    <div class='clearer'></div>
-    <br/>
-  <!--LINK MAPPING VIDEO EMBED-->
-    <label>Link Mapping Video Embed Code (Copy and Paste from Youtube or Vimeo)</label>
-    <?php echo form_textarea( array('name' => 'video_embed_link_mapping', 'rows' => '5', 'cols' => '80', 'value' => $default['video_embed_link_mapping'] ) )?>
-    <div class='clearer'></div>
     <br/>
 
   <!--NUMBER OF ISSUES PER PARTICIPANT-->
   <div class='third-wide-form' style='border-left:none;'>
-    <label for="numberOfIssuesPerParticipant">Max # of Issues/Participant for Issue Submission</label>
+    <label for="numberOfIssuesPerParticipant">Max # of Nodes/Participant for Node Submission</label>
     <?php echo form_error('numberOfIssuesPerParticipant'); ?>
     <input class='number-text' type='text' name='numberOfIssuesPerParticipant' value='<?php echo $default['numberOfIssuesPerParticipant']?>'/>
   </div>
@@ -131,24 +118,92 @@ echo form_open('projects/edit/' . $current_project . '/#scroll', $attributes); ?
     </select>
   </div>
   <div class='third-wide-form'>
-    <label for="numberOfIssuesPerParticipant">Min # of From Issues/Part. for Link Mapping</label>
+    <label for="numberOfIssuesPerParticipant">Min # of Focal Nodes/Participant for Link Mapping</label>
     <?php echo form_error('numberOfFromIssuesPerParticipant'); ?>
     <input class='number-text' type='text' name='numberOfFromIssuesPerParticipant' value='<?php echo $default['numberOfFromIssuesPerParticipant']?>'/> of <?php echo $total_issues?>
   </div>
   <div class='clearer'></div>
   <br/>
+
+    <label>Download Nodes/Links Spreadsheets</label>
+    <a class='submit-but issues-csv-download' href='<?php echo base_url() . "projects/download_issues_csv/" . $default['id'] ?>'>Download Submitted Nodes CSV</a>
+    <?php if($default['projectState'] > 1):?>
+    <a class='submit-but issues-csv-download' href='<?php echo base_url() . "projects/download_nodes_csv/" . $default['id'] ?>'>Download Final Curated Nodes CSV</a>
+    <?php else:?>
+    <a class='submit-but issues-csv-download' href='<?php echo base_url() . "projects/download_nodes_csv/" . $default['id'] ?>'>Download Nodes Template CSV</a>
+    <?php endif;?>
+    <?php if($default['projectState'] > 2):?>
+      <a class='submit-but issues-csv-download' href='<?php echo base_url() . "links/export_links_to_csv/" . $default['id'] ?>'>Download Links CSV</a>
+    <?php else:?>
+      <a class='submit-but issues-csv-download csv-error' href='#' title='Sorry, but this csv is not available until you change the project state to &lsquo;Remote Link Mapping&rsquo;'>Download Links CSV</a>
+    <?php endif;?>
+    <a class='submit-but issues-csv-download' href='<?php echo base_url() . "links/export_users_to_csv/" . $default['id'] ?>'>Download Participants CSV</a>
+    <div class='clearer'></div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+  <!--ADMIN EMAIL-->
+    <label for="admin_email">Admin Email</label>
+    <div class="small-text">(This email must be a mail account on the same server that this software is installed.)</div>
+    <?php echo form_error('admin_email'); ?>
+    <input id='admin-email' class='text-input text-input-wide' type='text' name='admin_email' value='<?php echo $default['admin_email']?>'/>
+    <div class='clearer'></div>
+   <!--QUESTION-->
+    <label for="question">Question</label>
+    <div class="small-text">(This question will show up in the Node Submission and Node Curation steps.)</div>
+    <?php echo form_error('question'); ?>
+    <?php echo form_textarea( array( 'name' => 'question', 'rows' => '5', 'cols' => '80', 'class' => 'tinymce', 'value' => set_value('question',$default['question']) ) )?>
+    <div class='clearer'></div>
+    <br/>
+  <!--DESCRIPTION-->
+    <label for="description">Description/Background Information</label>
+    <div class="small-text">(This description will show up in the Node Submission and Node Curation steps.)</div>
+    <?php echo form_error('description'); ?>
+    <?php echo form_textarea( array( 'class'=>'tinymce', 'name' => 'description', 'rows' => '5', 'cols' => '80', 'value' => set_value('description',$default['description']) ) )?>
+    <div class='clearer'></div>
+    <br/>
+  <!--REGISTRATION MESSAGE-->
+    <label for="registration_message">Registration Message</label>
+    <div class="small-text">(This message will be shown to users on this project's registration page.)</div>
+    <?php echo form_error('registration_message'); ?>
+    <?php echo form_textarea( array( 'class'=>'tinymce', 'name' => 'registration_message', 'rows' => '5', 'cols' => '80', 'value' => set_value('registration_message',$default['registration_message']) ) )?>
+    <div class='clearer'></div>
+    <br/>
+  <!--LINK MAPPING INSTRUCTIONS-->
+    <label for="description">Instructions for Link Mapping</label>
+    <?php echo form_error('link_mapping_info'); ?>
+    <?php echo form_textarea( array( 'class'=>'tinymce', 'name' => 'link_mapping_info', 'rows' => '5', 'cols' => '80', 'value' => set_value('link_mapping_info',$default['link_mapping_info']) ) )?>
+    <div class='clearer'></div>
+    <br/>
+  <!--TAG SEED-->
+    <label>Tag Seed (separate tags by commas)</label>
+    <?php echo form_textarea( array('id'=>'tag-seed', 'name' => 'tag_seed', 'rows' => '5', 'cols' => '80', 'value' => set_value('tag_seed',$default['tag_seed']) ) )?>
+    <div class='clearer'></div>
+    <br/>
+  <!--INTRO VIDEO EMBED-->
+    <label>Node Submission Video Embed Code (Copy and Paste from Youtube or Vimeo)</label>
+    <?php echo form_textarea( array('name' => 'video_embed', 'rows' => '5', 'cols' => '80', 'value' => $default['video_embed'] ) )?>
+    <div class='clearer'></div>
+    <br/>
+  <!--LINK MAPPING VIDEO EMBED-->
+    <label>Link Mapping Video Embed Code (Copy and Paste from Youtube or Vimeo)</label>
+    <?php echo form_textarea( array('name' => 'video_embed_link_mapping', 'rows' => '5', 'cols' => '80', 'value' => $default['video_embed_link_mapping'] ) )?>
+    <div class='clearer'></div>
+    <br/>
+
    <!--URL-->
     <label for="name">Project URL for User Registration (Copy, Paste, and Email this URL to users for registration) </label>
     <input id='project-url' class='text-input text-input-wide' readonly="readonly" type='text' name='final-url' value='<?php echo base_url() . "login/project_login/" . $default['url']?>'/>
   <div class='clearer'></div>
   <br/>
   <br/>
-  <br/>
-  <?php if($isProjectSaveSuccess):?>
-    <div class='form-success'>Project Successfully Saved!</div>
-  <?php endif;?>
-  <!--SUBMIT BUTTONS-->
-  <a class='submit-but issues-csv-download' href='<?php echo base_url() . "projects/download_issues_csv/" . $default['id'] ?>'>Download Issues CSV</a>
+
+  <!--SUBMIT BUTTON-->
   <?php $data = array(
     'id' => 'wide-submit',
     'class'=>'submit-but inside-box-submit',
@@ -156,13 +211,34 @@ echo form_open('projects/edit/' . $current_project . '/#scroll', $attributes); ?
     'value'=>'Save');
     ?>
   <?php echo form_submit($data); ?><div class='but-right'></div>
-</div>
 
 
 
 
 <?php echo form_close(); ?>
+<div id='upload-status'></div>
+
+<div class='upload-form'>
+<?php echo form_open_multipart('projects/upload_nodes_csv/' . $current_project . '/#upload-status');?>
+<label>Upload a spreadsheet of nodes for link Mapping</label>
+<div class='small-text' style='margin-bottom:5px;'>(use &ldquo;Download Curated Nodes CSV&rdquo; as a template and do not change the column order or delete the first 12 columns)</div>
+<?php if(isset($upload_error)):?>
+  <?php echo $upload_error;?>
+<?php endif;?>
+<input class='upload-input' type="file" name="userfile" size="20" />
 <div class='clearer'></div>
+<input type='submit' class='submit-but issues-csv-download' value='Upload Curated Nodes CSV'/>
+<div class='clearer'></div>
+<br/>
+<?php if($isProjectSaveSuccess):?>
+  <div class='form-success'>Project Successfully Saved!</div>
+<?php endif;?>
+<div class='clearer'></div>
+<?php echo form_close(); ?>
+</div>
+
+</div>
+
 
 <!--USER CREATE/DELETE FOR PROJECT-->
 <div class='left-form'>
@@ -242,121 +318,6 @@ echo form_open('projects/delete_user/#scroll', $attributes); ?>
 </div>
 
 
-<div class='left-form' style='margin-left:24px; margin-right:-24px;'>
-<h2>Create or Delete Text Inputs for Users</h2>
-
-
-<!--ADD/CREATE USER ATTRIBUTE FORM-->
-<?php
-$attributes = array('class' => 'left-form one-wide-form');
-echo form_open('projects/add_user_attribute/#scroll', $attributes); ?>
-<input type='hidden' name='current_project' value='<?php echo $current_project?>'/>
-<div class='input-box dark-box left-box'>
-  <p>
-    <label for="user_attr">User Attribute</label>
-    <?php echo form_error('user_attr'); ?>
-      <select class='text-input' name='user_attr'>
-      <option value=''>Choose a User Attribute</option>
-        <?php foreach($user_atts_ar as $a):?>
-        <option value='<?php echo $a->id?>'><?php echo $a->name?></option>
-        <?php endforeach;?>
-      </select>
-  </p>
-  <p>
-    <label for="new_user_attr">or New User Attribute Name</label>
-    <?php echo form_error('new_user_attr'); ?>
-    <input class='text-input' type='text' name='new_user_attr' value='<?php echo set_value('new_user_attr') ?>'/>
-
-    <input type='hidden' name='new_user_attr_type' value='ta'/>
-    <!--<label for="new_user_attr_type">Attribute Type</label>
-    <?php echo form_error('new_user_attr_type'); ?>
-    <select id='user-attr-type' class='text-input' name='new_user_attr_type'>
-      <option value=''>Choose an Attribute Type</option>
-      <?php if(set_value('new_user_attr_type') == "int"):?>
-      <option selected='selected' value='int'>Integer</option>
-      <?php else:?>
-      <option value='int'>Integer</option>
-      <?php endif;?>
-      <?php if(set_value('new_user_attr_type') == 'ta'):?>
-      <option selected='selected' value='ta'>Text Area</option>
-      <?php else:?>
-      <option value='ta'>Text Area</option>
-      <?php endif;?>
-    </select>
-  </p>
-  <div <?php if(set_value('new_user_attr_type') != 'int'):?>class='hidden-input'<?php endif;?> id='user-integer-inputs'>
-    <p>
-      <div class='half'>
-        <label class='left half' for='min_user_attr'>Min</label>
-        <input class='number-text left half' type='text' name='min_user_attr' value='<?php echo set_value("min_user_attr")?>'/>
-        <?php echo form_error('min_user_attr'); ?>
-      </div>
-      <div class='half'>
-        <label class='left half' for='max_user_attr'>Max</label>
-        <input class='number-text left half' type='text' name='max_user_attr' value='<?php echo set_value("max_user_attr")?>'/>
-        <?php echo form_error('min_user_attr'); ?>
-      </div>
-    </p>
-  </div>-->
-  <p>
-    <div class='submit'>
-    <?php $data = array(
-      'class'=>'submit-but inside-box-submit',
-      'name'=>'submit',
-      'value'=>'Create');
-      ?>
-    <?php echo form_submit($data); ?>
-    </div>
-  </p>
-  <br/>
-  <?php if($isAddUserAttrSuccess):?>
-  <div class='form-success'>User Attribute Successfully Added!</div>
-  <?php endif;?>
-</div>
-<div class='clearer'></div>
-<?php echo form_close(); ?>
-
-  <div class='vert-line'></div>
-
-<!--DELETE USER PROJECT ATTRIBUTES-->
-<?php
-$attributes = array('class' => 'left-form one-wide-form');
-echo form_open('projects/delete_user_attribute/#scroll', $attributes); ?>
-<input type='hidden' name='current_project' value='<?php echo $current_project?>'/>
-<div class='input-box light-box left-box' style='margin-left:-1px'>
-  <?php if($isDeleteUserAttrError):?>
-  <span class='error'>Please select a user attribute to remove.</span>
-  <?php endif;?>
-  <p>
-    <label for="delete_project_user_attr">User Attribute to Remove</label>
-    <select name='delete_project_user_attr' class='text-input' >
-      <option value=''>Select Attribute To Remove</option>
-      <?php foreach($project_user_atts as $a):?>
-      <option value='<?php echo $a->id ?>'><?php echo $a->name?> - <?php echo $a->type?></option>
-      <?php endforeach;?>
-    </select>
-  </p>
-<p>
-  <div class='submit'>
-  <?php $data = array(
-    'class'=>'submit-but inside-box-submit',
-    'id'=>'attr-delete',
-    'name'=>'submit',
-    'value'=>'Delete');
-    ?>
-  <?php echo form_submit($data); ?>
-  </div>
-</p>
-  <br/>
-  <?php if($isDeleteUserAttrSuccess):?>
-  <div class='form-success'><?php echo $deleted_user_attr?> Successfully Removed From Project!</div>
-  <?php endif;?>
-</div>
-<div class='clearer'></div>
-<?php echo form_close(); ?>
-
-<div class='clearer'></div>
-</div>
 
 <!-- 
 

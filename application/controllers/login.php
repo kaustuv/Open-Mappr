@@ -59,10 +59,11 @@ class Login extends User_Controller {
 
 	public function check_email_confirmed($em)
 	{
+		$admin_email = $this->Login_model->get_admin_email();
 		$isNC = $this->Login_model->check_if_not_confirmed($em);
 		if($isNC)
 		{
-			$this->form_validation->set_message('check_email_confirmed', 'This email has not been confirmed. Please check your email for a confirmation link from admin@vibrantdatalabs.org');
+			$this->form_validation->set_message('check_email_confirmed', 'This email has not been confirmed. Please check your email for a confirmation link from '+$admin_email);
 			return FALSE;
 		} else
 		{
@@ -126,6 +127,7 @@ class Login extends User_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			$this->view_data['isError'] = FALSE;
+			$this->view_data['registration_message'] = $this->Login_model->get_registration_message();
 			//show registration or login page for this project
 			$this->load_container_with('project_registration_view','REGISTRATION FOR &lsquo;' . strtoupper($nm) . '&rsquo;');
 		} else
@@ -168,6 +170,7 @@ class Login extends User_Controller {
 			//get name for this project
 			$nm = $this->Login_model->get_name_of_project();
 			$this->view_data['isError'] = FALSE;
+			$this->view_data['registration_message'] = $this->Login_model->get_registration_message();
 
 			//show registration or login page for this project
 			$this->load_container_with('project_registration_view','REGISTRATION FOR &lsquo;' . strtoupper($nm) . '&rsquo;');
@@ -219,8 +222,9 @@ class Login extends User_Controller {
 				redirect('');
 			} else
 			{
+				$admin_email = $this->Login_model->get_admin_email();
 				$this->view_data['error_message'] = "You seem like you're trying to do something you shouldn't be doing. ";
-				$this->view_data['error_message'] .= "If you feel you've reached this message in a legitimate fashion, please contact eric@vibrantdatalabs.org for help. or <a href='" . base_url() . "'>Login</a>";
+				$this->view_data['error_message'] .= "If you feel you've reached this message in a legitimate fashion, please contact ".$admin_email." for help. or <a href='" . base_url() . "'>Login</a>";
 				$this->load_container_with('error_view','ERROR');	
 			}
 		}
@@ -307,26 +311,11 @@ class Login extends User_Controller {
 		} else
 		{
 			$uP = set_value('user_pass');
-			/*$form_data = array(
-						'workField' => set_value('workField'),
-						'workExpertise' => set_value('workExpertise'),
-						'workProjects' => set_value('workProjects'));
-						*/
-						 
-			$form_data = array();
-			foreach($_POST as $key=>$value)
-			{
-				if(strpos($key,'input_') !== false)
-				{
-					$inpIdAR = explode('input_',$key);
-					$form_data[$inpIdAR[1]] = $value;
-				}
-			}
 
 			$fN = $this->input->post('first_name');
 			$lN = $this->input->post('last_name');
 
-			if($this->Login_model->set_user_info($form_data,$em,$uP,$fN,$lN,$pId))
+			if($this->Login_model->set_user_info($em,$uP,$fN,$lN,$pId))
 			{	
 			 	$this->view_data['isNewUser'] = FALSE;
 			 	$this->view_data['isUserSaveSuccess'] = TRUE;
@@ -334,11 +323,6 @@ class Login extends User_Controller {
 			 	//if user not logged in, log user in
 			 	$this->Login_model->login_user($em);
 
-				//get current user info
-				//$this->view_data['default'] = $this->Login_model->get_user_info($em,$pId);
-				//load view
-				//load view for user to register
-				//$this->load_container_with('register_view','USER PROFILE EDIT');
 				//redirect to current project
 				redirect('');
 				
@@ -386,7 +370,8 @@ class Login extends User_Controller {
 			return TRUE;
 		} else
 		{
-			$this->form_validation->set_message('user_email_check', 'This email is not in our records. Please contact eric@vibrantdatalabs.org for assistance.');
+			$admin_email = $this->Login_model->get_admin_email();
+			$this->form_validation->set_message('user_email_check', 'This email is not in our records. Please contact '.$admin_email.' for assistance.');
 			return FALSE;
 		}
 	}

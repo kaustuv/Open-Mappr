@@ -119,6 +119,7 @@ class Issues extends User_Controller {
 		$this->_check_project_state(2);
 
 		if($this->session->userdata('isAdministrator') == FALSE)
+		//if(1 == 1)
 		{
 			redirect('issues/issue_curation_leaderboard');
 		}
@@ -186,13 +187,13 @@ class Issues extends User_Controller {
 			$rev = 0;
 		}
 
-		if($this->input->post('is_goal') == 'goal')
+		/*if($this->input->post('is_goal') == 'goal')
 		{
 			$goal = 1;
 		} else
 		{
 			$goal = 0;
-		}
+		}*/
 		$form_data = array('id'=>$this->input->post('issue_id'),
 											'name'=>$this->input->post('name'),
 											'description'=>html_entity_decode(trim($this->input->post('description'))),
@@ -201,7 +202,7 @@ class Issues extends User_Controller {
 											'votes'=>$this->input->post('votes'),
 											'isRevisit'=>$rev,
 											'notes'=>$this->input->post('notes'),
-											'isGoal'=>$goal,
+											/*'isGoal'=>$goal,*/
 											'issueInd'=>$this->input->post('issue_ind'));
 		$tID = 'as_values_'.$this->input->post('tag_id');
 		$cats = $this->input->post($tID);

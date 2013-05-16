@@ -4,590 +4,660 @@
 		"selected_items":
 		[
 			[
-				"poss",
-				"possible_participants"
-			],
-			[
-				"rer",
-				"returnAR"
-			],
-			[
-				"retur",
-				"returnAR"
-			],
-			[
-				"chose",
-				"chosenAR"
-			],
-			[
-				"users",
-				"usersChosenFromNodes"
-			],
-			[
-				"json_",
-				"json_encode"
-			],
-			[
-				"tot_foc",
-				"tot_focal_eval"
-			],
-			[
-				"der",
-				"derived_value"
-			],
-			[
-				"sto",
-				"store_organize"
-			],
-			[
-				"sen",
-				"sense_create"
-			],
-			[
-				"ana",
-				"analyze_discover"
-			],
-			[
-				"access",
-				"access_circulate"
-			],
-			[
 				"result",
 				"resultAR"
 			],
 			[
-				"resu",
-				"resultAR"
+				"registration",
+				"registration_message"
 			],
 			[
-				"circle",
-				"circle-tags"
+				"Adm",
+				"Admin_model"
 			],
 			[
-				"fini",
-				"finishedContent"
+				"admin",
+				"admin_email"
 			],
 			[
-				"for",
-				"foreach	foreach …"
+				"adm",
+				"admin_email"
 			],
 			[
-				"subset",
-				"subset_tags"
+				"Login",
+				"Login_model"
 			],
 			[
-				"as-se",
-				"as-selections"
+				"_get",
+				"_get_admin_email"
 			],
 			[
-				"inst",
-				"instruction-video-but"
+				"inser",
+				"insert_id"
 			],
 			[
-				"subs",
-				"subset_tags"
+				"nodes",
+				"nodesNode_data"
 			],
 			[
-				"intro",
-				"intro-video-but"
+				"node",
+				"nodesNodeTags"
 			],
 			[
-				"user-n",
-				"user-notes-holder"
-			],
-			[
-				"cen",
-				"centerY"
-			],
-			[
-				"center",
-				"centerX"
-			],
-			[
-				"circl",
-				"circle-tags"
-			],
-			[
-				"as-sele",
-				"as-selection-item"
-			],
-			[
-				"issue",
-				"issue-tags"
-			],
-			[
-				"par",
-				"parenth"
-			],
-			[
-				"below",
-				"below-circles"
-			],
-			[
-				"scro",
-				"scrollHeight"
-			],
-			[
-				"setI",
-				"setInterval"
+				"open",
+				"opening-closing-rows-status"
 			],
 			[
 				"setIss",
-				"setIssueTipTip"
+				"setIssueFocusEvents"
 			],
 			[
-				"issue-nam",
-				"issue-name-holder"
+				"stop",
+				"stopPropagation"
 			],
 			[
-				"curFro",
-				"curFromNode"
+				"remo",
+				"removeActivityIndicator"
 			],
 			[
-				"from",
-				"from-holder"
+				"remove",
+				"removeActivityIndicator"
 			],
 			[
-				"rand",
-				"random-froms-but"
+				"dash",
+				"dashboardView"
 			],
 			[
-				"bel",
-				"below-circles"
+				"das",
+				"dashboardView"
 			],
 			[
-				"toL",
-				"toLowerCase"
+				"login",
+				"loginBtn"
 			],
 			[
-				"curFrom",
-				"curFromNode"
+				"logout",
+				"logoutBtn"
 			],
 			[
-				"we",
-				"webkit-transform"
+				"glob",
+				"globalPW"
 			],
 			[
-				"curFr",
-				"curFromNode"
+				"edit",
+				"editImageBtn"
 			],
 			[
-				"total",
-				"total_froms"
+				"profile",
+				"profileView"
 			],
 			[
-				"link-pos",
-				"link-positive-corr-set"
+				"image",
+				"imageShadowWidth"
 			],
 			[
-				"incompl",
-				"incompleteText"
+				"profileI",
+				"profileImageHolder"
 			],
 			[
-				"incom",
-				"incompleteText"
+				"unclus",
+				"unclusterEvent"
 			],
 			[
-				"link-bu",
-				"link-but-filled-background"
+				"isUn",
+				"isUnclustering"
 			],
 			[
-				"to-no",
-				"to-node-set"
+				"is_",
+				"is_super_area"
 			],
 			[
-				"from-ins",
-				"from-instruct-finished"
+				"areaTy",
+				"areaTypeLbl"
 			],
 			[
-				"to-nod",
-				"to-node-content"
+				"cont",
+				"containingTab"
 			],
 			[
-				"finished",
-				"finished-content"
+				"choo",
+				"chooseStateBtn"
 			],
 			[
-				"finish",
-				"finished-content"
+				"country",
+				"countryLbl"
 			],
 			[
-				"ret",
-				"retStr"
+				"staticM",
+				"staticMapHeight"
 			],
 			[
-				"curF",
-				"curFromNode"
+				"staticMap",
+				"staticMapHeight"
 			],
 			[
-				"link_mo",
-				"links_model"
+				"static",
+				"staticMapHeight"
 			],
 			[
-				"fancy",
-				"fancybox"
+				"staticMa",
+				"staticMapHeight"
 			],
 			[
-				"projectS",
-				"projectStates"
+				"lati",
+				"latitude"
 			],
 			[
-				"instruc",
-				"instruction-info-but"
-			],
-			[
-				"from-in",
-				"from-instructions"
-			],
-			[
-				"isC",
-				"isCirclesShrunk"
-			],
-			[
-				"link-ma",
-				"link-mapping"
-			],
-			[
-				"from-inst",
-				"from-instructions"
-			],
-			[
-				"strto",
-				"strtolower"
-			],
-			[
-				"cir",
-				"circle-tags"
-			],
-			[
-				"table",
-				"table-cell"
-			],
-			[
-				"video",
-				"video_embed"
-			],
-			[
-				"comm",
-				"comment-filled"
-			],
-			[
-				"comment",
-				"comment-filled"
-			],
-			[
-				"addC",
-				"addClass"
-			],
-			[
-				"fanc",
-				"fancybox"
-			],
-			[
-				"resetL",
-				"resetLinkSort"
-			],
-			[
-				"dra",
-				"drawLinkLine"
-			],
-			[
-				"reset",
-				"resetTagFilter"
-			],
-			[
-				"curT",
-				"curToNodes"
-			],
-			[
-				"link-ne",
-				"link-negative-corr"
-			],
-			[
-				"link-posi",
-				"link-positive-corr"
-			],
-			[
-				"link-com",
-				"link-comment2"
-			],
-			[
-				"link-co",
-				"link-comment2"
-			],
-			[
-				"links",
-				"linksJSON"
+				"location",
+				"locationAdded"
 			],
 			[
 				"create",
-				"create-links-buts"
+				"createGuideBtn"
 			],
 			[
-				"link-but",
-				"link-but-filled-background"
+				"reposi",
+				"repositionProblems"
 			],
 			[
-				"out",
-				"outgoing-link-but"
+				"repso",
+				"repositionAreas"
 			],
 			[
-				"JSO",
-				"linksJSON"
+				"reposition",
+				"repositionAreas"
 			],
 			[
-				"top-",
-				"top-link-buttons"
+				"repositi",
+				"repositionAreas"
 			],
 			[
-				"vim",
-				"vimeoContent"
+				"pare",
+				"parentAreaBtn"
 			],
 			[
-				"tiptip",
-				"tiptip_holder"
+				"probl",
+				"problemTable"
 			],
 			[
-				"link-comment",
-				"link-comment-box"
+				"orig",
+				"originalLongitude"
 			],
 			[
-				"link-positiv",
-				"link-positive-corr2"
+				"problemI",
+				"problemImageView"
 			],
 			[
-				"link-fille",
-				"link-but-filled-background"
+				"error",
+				"errorProblemImage"
 			],
 			[
-				"link-negative",
-				"link-negative-corr-set"
+				"problemImage",
+				"problemImageHolder"
 			],
 			[
-				"comme",
-				"link-comment2"
+				"erro",
+				"errorProblemImage"
 			],
 			[
-				"link-positive",
-				"link-positive-corr-set"
+				"remov",
+				"removeEventListener"
 			],
 			[
-				"setLinkCo",
-				"setLinkCorrClicks"
+				"curAr",
+				"curAreaAnnotations"
 			],
 			[
-				"link-neg",
-				"link-negative-corr2"
+				"center",
+				"centerLong"
 			],
 			[
-				"link-but-f",
-				"link-but-filled-background"
+				"maxD",
+				"maxDeltatLong"
 			],
 			[
-				"fan",
-				"fancybox"
+				"max",
+				"maxDeltatLat"
 			],
 			[
-				"issue-subm",
-				"issue-submit-but"
+				"curA",
+				"curAreaAnnotations"
 			],
 			[
-				"subm",
-				"submit-but"
+				"createA",
+				"createAreaMarkers"
 			],
 			[
-				"vime",
-				"vimeoContent"
+				"Areas",
+				"AreasWindow"
 			],
 			[
-				"htmlspe",
-				"htmlspecialchars_decode"
+				"locatio",
+				"locationAR"
 			],
 			[
-				"overflow",
-				"overflow-x"
+				"region",
+				"regionToZoomObj"
 			],
 			[
-				"from-instr",
-				"from-instruct-begin"
+				"latitud",
+				"latitudeDelta"
 			],
 			[
-				"htmls",
-				"htmlspecialchars_decode"
+				"zoom",
+				"zoomToRegionObj"
 			],
 			[
-				"vimeo",
-				"vimeo-content"
+				"guid",
+				"guide_name"
 			],
 			[
-				"array_key",
-				"array_key_exists"
+				"acce",
+				"accessTxt"
 			],
 			[
-				"array_ke",
-				"array_key_exists"
+				"camping",
+				"campingLbl"
 			],
 			[
-				"simpl",
-				"simpleloginsecure"
+				"ac",
+				"access"
 			],
 			[
-				"get_project_id",
-				"get_project_id_by_email"
+				"proble",
+				"problem_description"
 			],
 			[
-				"pId",
-				"pId"
+				"des",
+				"description"
 			],
 			[
-				"user_pass",
-				"user_pass_conf"
+				"cr",
+				"createView()  (namespace)"
 			],
 			[
-				"vertical",
-				"vertical-align"
+				"curL",
+				"curLongitude"
 			],
 			[
-				"pr",
-				"project-name"
+				"lat",
+				"latitude"
 			],
 			[
-				"init",
-				"initialProjectURL"
+				"stat",
+				"staticMapView"
 			],
 			[
-				"project",
-				"project-url"
+				"statiMap",
+				"staticMapView"
 			],
 			[
-				"initi",
-				"initialProjectName"
+				"stati",
+				"staticMapURL"
 			],
 			[
-				"fun",
-				"function"
+				"map",
+				"map_location"
 			],
 			[
-				"input-wid",
-				"input-box-wide"
+				"loca",
+				"locationCallback"
 			],
 			[
-				"web",
-				"webkit-box-shadow"
+				"imageS",
+				"imageShadowWidth"
 			],
 			[
-				"shadowy",
-				"shadowy"
+				"define",
+				"defineImageBtnTxt"
 			],
 			[
-				"moz-",
-				"moz-box-shadow"
+				"paint",
+				"paintView"
 			],
 			[
-				"input",
-				"input-box"
+				"problemIm",
+				"problemImageShadow"
 			],
 			[
-				"border",
-				"border-left"
+				"imageH",
+				"problemImageHolder"
 			],
 			[
-				"input-box",
-				"input-box-wide"
+				"fa",
+				"faTextField"
 			],
 			[
-				"SETISS",
-				"setIssueTagOvers"
+				"descr",
+				"descriptionTxt"
 			],
 			[
-				"tipt",
-				"tiptip_holder"
+				"problem_gr",
+				"problem_grade"
 			],
 			[
-				"scrol",
-				"scrollTo"
+				"close",
+				"closeWindow"
 			],
 			[
-				"dele",
-				"delete-text"
+				"curGr",
+				"curGradeConverted"
 			],
 			[
-				"num",
-				"number"
+				"curGra",
+				"curGradeValue"
+			],
+			[
+				"curr",
+				"curGradeConverted"
+			],
+			[
+				"chang",
+				"changeRatBut"
+			],
+			[
+				"gradeP",
+				"gradePickerHolder"
+			],
+			[
+				"prob",
+				"problem_num_ratings"
+			],
+			[
+				"activ",
+				"activityIndicator"
+			],
+			[
+				"content",
+				"contentHeight"
+			],
+			[
+				"mediaV",
+				"mediaViewHolder"
+			],
+			[
+				"medi",
+				"mediaView"
+			],
+			[
+				"mediaView",
+				"mediaViewHolder"
+			],
+			[
+				"clos",
+				"closeWindow"
+			],
+			[
+				"guide",
+				"guideId"
+			],
+			[
+				"problemImag",
+				"problemImageHolder"
+			],
+			[
+				"cancel",
+				"cancelBtn"
+			],
+			[
+				"uploa",
+				"uploadBtn"
+			],
+			[
+				"canc",
+				"cancelBtn"
+			],
+			[
+				"Sa",
+				"saveGradeBtn"
+			],
+			[
+				"myGra",
+				"myGradeBtn"
+			],
+			[
+				"myg",
+				"myGradeLbl"
+			],
+			[
+				"grdeL",
+				"gradeLblTxt"
+			],
+			[
+				"gradeLb",
+				"gradeLblTxt"
+			],
+			[
+				"gra",
+				"gradesList"
+			],
+			[
+				"gradeL",
+				"gradeLblTxt"
+			],
+			[
+				"user_g",
+				"user_grade_converted"
+			],
+			[
+				"starsUser",
+				"starsUserRatedMask"
+			],
+			[
+				"starsUs",
+				"starsUserRatedView"
+			],
+			[
+				"acti",
+				"activityIndicator"
+			],
+			[
+				"starsUnr",
+				"starsUnratedView"
+			],
+			[
+				"starBu",
+				"starButsView"
+			],
+			[
+				"cur",
+				"curProblemAnnotations"
+			],
+			[
+				"clus",
+				"clustersAR"
+			],
+			[
+				"uncl",
+				"unclusterAnnots"
+			],
+			[
+				"curPr",
+				"curProblemAnnotations"
+			],
+			[
+				"recl",
+				"reclusterAnnots"
+			],
+			[
+				"or",
+				"originalLongitude"
+			],
+			[
+				"long",
+				"longitude"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"origi",
+				"originalLongitude"
+			],
+			[
+				"ori",
+				"originalLatitude"
+			],
+			[
+				"clusterAR",
+				"clusterArrayInd"
+			],
+			[
+				"arr",
+				"Array"
+			],
+			[
+				"comp",
+				"compareProblemMarkers"
+			],
+			[
+				"curP",
+				"curProblemAnnotations"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 47616,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 604 files for \"link_mapping_info\"\n\n/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/controllers/projects.php:\n   48  		$this->form_validation->set_rules('tag_seed','Tag Seed','trim|xss_clean');\n   49  		$this->form_validation->set_rules('video_embed','Video Embed','trim|xss_clean');\n   50: 		$this->form_validation->set_rules('link_mapping_info','Link Mapping Instructions','trim|xss_clean');\n   51  		$this->form_validation->set_rules('video_embed_link_mapping','Video Embed','trim|xss_clean');\n   52  \n   ..\n   67  				$this->view_data['default']['tag_seed'] = set_value('tag_seed');\n   68  				$this->view_data['default']['video_embed'] = set_value('video_embed');\n   69: 				$this->view_data['default']['link_mapping_info'] = set_value('link_mapping_info');\n   70  				$this->view_data['default']['video_embed_link_mapping'] = set_value('video_embed_link_mapping');\n   71  			}\n   ..\n   78  			$desc = htmlspecialchars_decode(set_value('description'),ENT_QUOTES);\n   79  			$registration_message = htmlspecialchars_decode(set_value('registration_message'),ENT_QUOTES);\n   80: 			$link_info = htmlspecialchars_decode(set_value('link_mapping_info'),ENT_QUOTES);\n   81  			$url = url_title(set_value('name'));\n   82  			$form_data = array(\n   ..\n   92  						'video_embed' => html_entity_decode($this->input->post('video_embed')),\n   93  						'video_embed_link_mapping' => html_entity_decode($this->input->post('video_embed_link_mapping')),\n   94: 						'link_mapping_info' => $link_info\n   95  						);\n   96  			$tag_seed = htmlspecialchars_decode(set_value('tag_seed'),ENT_QUOTES);\n\n/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/models/links_model.php:\n   41      $this->db->limit(1);\n   42      $this->db->where('id',$pId);\n   43:     $this->db->select('link_mapping_info');\n   44      $query = $this->db->get('projects');\n   45:     return $query->row('link_mapping_info'); \n   46    }\n   47  \n\n/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/project_edit_view.php:\n  177    <!--LINK MAPPING INSTRUCTIONS-->\n  178      <label for=\"description\">Instructions for Link Mapping</label>\n  179:     <?php echo form_error('link_mapping_info'); ?>\n  180:     <?php echo form_textarea( array( 'class'=>'tinymce', 'name' => 'link_mapping_info', 'rows' => '5', 'cols' => '80', 'value' => set_value('link_mapping_info',$default['link_mapping_info']) ) )?>\n  181      <div class='clearer'></div>\n  182      <br/>\n\n/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/mappr_db.sql:\n  331    `projectState` tinyint(1) NOT NULL,\n  332    `video_embed` text NOT NULL,\n  333:   `link_mapping_info` text NOT NULL,\n  334    `video_embed_link_mapping` text NOT NULL,\n  335    PRIMARY KEY (`id`)\n\n/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/test.sql:\n 1583    `projectState` tinyint(1) NOT NULL,\n 1584    `video_embed` text NOT NULL,\n 1585:   `link_mapping_info` text NOT NULL,\n 1586    `video_embed_link_mapping` text NOT NULL,\n 1587    `admin_email` varchar(128) NOT NULL,\n ....\n 1594  --\n 1595  \n 1596: INSERT INTO `projects` (`id`, `name`, `url`, `description`, `question`, `numberOfIssuesPerParticipant`, `numberOfFromIssuesPerParticipant`, `projectState`, `video_embed`, `link_mapping_info`, `video_embed_link_mapping`, `admin_email`, `registration_message`) VALUES\n 1597  (8, 'Vibrant Data Project', 'Vibrant-Data-Project', '<p><span>How can we make our personal data work for us and not against us? How can we enable global-scale &ldquo;Participatory Value Creation&rdquo; &nbsp;- where de-centralized, open access to data and the right tools help everyday people discover new meaning, new currencies, and new opportunity for creating value that wasn&rsquo;t there before &ndash; from micro-entrepreneurship to collective governance to human well-being?&nbsp; <br /></span></p>\\n<p><span>The world is undergoing an explosion in the availability of digital data, a tremendous amount of it generated by technology users simply going about their daily lives.&nbsp; Much has been made about the degree to which corporations are&nbsp;<a href=\"http://www.fastcompany.com/magazine/160/tech-wars-2012-amazon-apple-google-facebook\"><span>battling for control</span></a>&nbsp;of this ever-growing data-sphere. But this explosion has also created the opportunity for a more participatory approach to value creation, one not dominated by consumerism and big corporations. People are bringing tremendous entrepreneurial energy, and a renewed sense of community, to the use of their of personal assets (<a href=\"http://www.airbnb.com/\"><span>AirBnb</span></a>;&nbsp;<a href=\"http://www.thredup.com/\"><span>ThredUp</span></a>;&nbsp;<a href=\"http://www.parkatmyhouse.com/uk/\"><span>Parkatmyhouse</span></a>); their skills and knowledge (<a href=\"http://www.quirky.com/\"><span>Quirky</span></a>;&nbsp;<a href=\"http://www.thingiverse.com/\"><span>Thingiverse</span></a>;&nbsp;<a href=\"http://www.udemy.com/\"><span>Udemy</span></a>) and, most relevant, their personal data (<a href=\"https://pachube.com/\"><span>Pachube</span></a>;&nbsp;<a href=\"http://www.patientslikeme.com/\"><span>PatientsLikeMe</span></a>;&nbsp;<a href=\"http://www.quantifiedself.com/\"><span>Quantified Self</span></a>).&nbsp;</span></p>\\n<p><span>How can we enable massive expansion of these developments by lowering the barriers to entry and enabling more people to be creative without having to re-create the basic tools for finding new meaning and new opportunities for value creation?</span></p>\\n<p><span>Are we talking about &ldquo;<a href=\"http://www.plosbiology.org/article/info:doi/10.1371/journal.pbio.1001195\"><span>Open Data</span></a>&rdquo;? Not exactly. Most open data discussions do not address how individuals might selectively control the sharing of data for their own benefit. Are we talking about &ldquo;<a href=\"http://www.mckinsey.com/Insights/MGI/Research/Technology_and_Innovation/Big_data_The_next_frontier_for_innovation\"><span>Big Data</span></a>&rdquo;? Not exactly. Although we are interested in how Big Data tools might be adapted to fit the needs of individuals and communities.&nbsp; Are we talking about&nbsp;<a href=\"http://www.collaborativeconsumption.com/the-movement/snapshot-of-examples.php\"><span>Collaborative Consumption</span></a>? Yes, but somewhat more specific to the context of digital data creation and use.&nbsp;</span></p>\\n<p><span>What shapes how people assume control of their personal data, and share it with others? How can ordinary people easily find meaning in large data sets? How are issues of data quality and personal security balanced against openness and fluidity? How can relatively lesser skilled individuals discover new pathways to value? What are the best ways to assign and accrue value to participants?</span></p>\\n<div><span><br /></span></div>', '<p><span>Currently, most personal data is gathered by large institutions and corporations who keep it for their own purposes. We are interested in creating the capability for a much more decentralized approach &ndash; where individuals retain more control over their personal data, collaboratively discover its value and directly benefit from it. We would like your help in understanding how to make that possibility a reality.</span></p>\\n<p>&nbsp;</p>\\n<p><strong>What are 3-10 critical issues that either enable or constrain this decentralization of data control, use, and transformation into value?</strong></p>', 10, 3, 3, '<iframe src=\"http://player.vimeo.com/video/37546912?title=0&byline=0&portrait=0&color=588A9E&autoplay=1\" width=\"800\" height=\"450\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>', '<div><strong>PART 1</strong></div>\\n<div>&nbsp;</div>\\n<div>HI! THANKS FOR HELPING US MAP THE INTERCONNECTED CHALLENGES TO DEMOCRATIZING DATA.</div>\\n<div>&nbsp;</div>\\n<div>OUR GOAL is to enrich, diversify, and democratize the value created from the ecosystem of data that start and ends with us.&nbsp;Through input from a variety of experts, we have identified a core list of ~100 critical ''challenges'' (jobs that need to be done, problems that need solving, fundamental goals, and other ''moving parts'') that are essential for making our personal data work for us and not against us so that everyday people can benefit from the explosion of data about ourselves and our world. &nbsp;</div>\\n<div>&nbsp;</div>\\n<div>IN THIS PHASE you will help us map how each of these ''challenges'' directly influence each other.&nbsp;</div>\\n<div>If one challenge is solved, is another one also solved? or does it get worse?</div>\\n<div>&nbsp;</div>\\n<div>From the network structure of this influence map, we are identifying a core hub of ''Grand Challenges'' that merit special creative attention for solving this bigger problem. You can see our first results based on input from about 50 experts on WeTheData.org</div>\\n<div>&nbsp;</div>\\n<div>WE REALIZE this is work, so we tried to make it as easy as possible. (We''re working on making it fun!).</div>\\n<div>Please anticipate spending a couple hours to complete - we deeply appreciate every minute of your time.</div>\\n<div>&nbsp;</div>\\n<div>WE WILL SHARE the results of this effort with you. We hope it will provide valuable insights that will empower you to empower a Vibrant Data revolution.</div>\\n<div>&nbsp;</div>\\n<div><strong>PART 2</strong></div>\\n<div>&nbsp;</div>\\n<div>HOW TO DO IT</div>\\n<div>\\n<div>&nbsp;</div>\\n<ol>\\n<li>SELECT a focal set of 10 issues that you will map all ''outgoing'' and ''incoming'' links to/from all other issues</li>\\n<li>DRAW LINKS between any pair of issues (e.g., A and B) where a change in one causes a direct meaningful change in the other.\\n<ul>\\n<li>if a change in A causes a change in B, draw a link FROM A to B</li>\\n<li>if a change in B causes a change in A, draw the reverse link FROM B to A.</li>\\n<li>if A and B influence each other, draw a two way link.</li>\\n</ul>\\n</li>\\n<li>GIVE EACH LINK A SIGN<br />\\n<ul>\\n<li>If an&nbsp;*increase* in A causes an *increase* in B, then they are positively correlated.&nbsp;<strong>(&uarr;)</strong></li>\\n<li>If&nbsp;an *increase* in A causes a *decrease* in B, click they are negatively correlated.&nbsp;<strong>(&darr;)</strong></li>\\n<li><strong></strong>(NOTE - most issues are phrased in such a way that ''increase'' = ''improvement'', but some are ambiguous)</li>\\n</ul>\\n</li>\\n<li>ADD COMMENTS (OPTIONAL): If a link is strong but it strongly depends on something else, don''t hesitate to briefly describe why in the comments field!</li>\\n<li>REPEAT for all the focal issues on your list</li>\\n<li>You can always go back and edit links. Click the check box on each issue when it is complete.</li>\\n</ol></div>\\n<div>&nbsp;</div>\\n<div>TIPS</div>\\n<ul>\\n<li>go with your gut, don''t over-think</li>\\n<li>focus on direct influences that are stronger than average and relatively certain</li>\\n<li>the quicker the better</li>\\n</ul>\\n<p><em><br /></em></p>', '<iframe src=\"http://player.vimeo.com/video/41297596?title=0&byline=0&portrait=0&color=588A9E&autoplay=1\" width=\"800\" height=\"450\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>', 'sundev@brainvise.com', '<p>A message about registration.</p>'),\n 1598  (9, 'WebOfLife', 'WebOfLife', '', '<p>How can we harness collective expertise on species interactions in real systems?</p>', 0, 10, 2, '', '', '', 'sundev@brainvise.com', ''),\n\n14 matches across 5 files\n",
+			"settings":
+			{
+				"buffer_size": 11434,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "application/controllers/links.php",
+			"settings":
+			{
+				"buffer_size": 16806,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/projects.php",
+			"settings":
+			{
+				"buffer_size": 15429,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/issues_listing_view.php",
+			"settings":
+			{
+				"buffer_size": 5311,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/issues_curation_view.php",
+			"settings":
+			{
+				"buffer_size": 6741,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/config/mimes.php",
+			"settings":
+			{
+				"buffer_size": 4469,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/project_edit_view.php",
+			"settings":
+			{
+				"buffer_size": 13421,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/link_mapping_view.php",
+			"settings":
+			{
+				"buffer_size": 14494,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "javascript/link-mapping.js",
+			"settings":
+			{
+				"buffer_size": 68749,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/links_model.php",
+			"settings":
+			{
+				"buffer_size": 19057,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/issues_model.php",
+			"settings":
+			{
+				"buffer_size": 11023,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "javascript/issueCuration.js",
+			"settings":
+			{
+				"buffer_size": 37805,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/issues.php",
+			"settings":
+			{
+				"buffer_size": 5963,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/projects_model.php",
+			"settings":
+			{
+				"buffer_size": 14176,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 357.0,
 		"selected_items":
 		[
 			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"in",
-				"Package Control: Install Package"
-			],
-			[
-				"rem",
-				"Package Control: Remove Package"
-			],
-			[
-				"remo",
-				"Package Control: Remove Package"
-			],
-			[
-				"remov",
-				"Package Control: Remove Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
-				"",
-				"Package Control: Remove Package"
-			],
-			[
-				"disab",
-				"SublimeCodeIntel: Disable Plugin"
-			],
-			[
-				"package",
-				"Package Control: Disable Package"
-			],
-			[
-				"reind",
-				"Indentation: Reindent Lines"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
+				"pack",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 410.0
+		"width": 453.0
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 120.0
 	},
 	"distraction_free":
 	{
@@ -600,127 +670,134 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/Vibrant_Data_Labs_Mappr/VibrantDataLabsMappr",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/projects.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/start.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/login.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/link-viz.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/css/style.css",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/link_mapping_view_ncp.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/html/meta_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/user-feedback.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/link_mapping_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/link-mapping.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/database.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/models/admin_model.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/models/links_model.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/models/login_model.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/models/projects_model.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/project_registration_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/TruNorthRemoteFacilitation.sublime-workspace",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/issue_submission_finished_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/html/header_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/links.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/project_edit_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/issues_listing_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/fancybox-transitions.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/helpers/excel_helper.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/fancybox/jquery.fancybox.css",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/css/autoSuggest.css",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/register_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/user-notes.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/issues_curation_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/jquery.circlepacker.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/moocirclepack.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/transformjs.1.0.beta.2.min.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/transformjs.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/jquery.tipTip.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/issues_curation_view_ncp.php",
-		"/Users/sundev/Desktop/issues_curation_view.php",
-		"/Users/sundev/Desktop/oldNodeNodesTagsTable.sql",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/issues.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/models/issues_model.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/issues_listing_instruction_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/link_mapping_instructions_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/issue_curation_leaderboard_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/jquery.autoSuggestOld.js",
-		"/Users/sundev/Desktop/mapprdb.sql",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/jquery.autoSuggest.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/jquery.scrollTo-min.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/link_mapping_viewOld.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/container_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/links_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/jquery-ui-1.8.17.custom.min.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/jquery-ui-1.8.18.custom.min.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/admin.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/project_edit_viewOld.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/admin_view.php",
-		"/Users/sundev/Desktop/mappr_tn_clean.sql",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/forgot_pass_success_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/choose_project_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/registration_success_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/system/database/DB_driver.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/system/database/DB_utility.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/login_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/libraries/SimpleLoginSecure.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/error_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/jquery.scrollTo-min.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/config/config.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/config/doctypes.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/test.sql",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/link-mapping.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/controllers/links.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/controllers/projects.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/models/login_model.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/models/admin_model.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/issueCurationLeaderboard.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/issues_curation_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/controllers/issues.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/models/links_model.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/controllers/login.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/link_mapping_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/issue_curation_leaderboard_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/models/issues_model.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/project_registration_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/issueCuration.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/link_mapping_view_ncp.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/project_edit_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/models/projects_model.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/html/meta_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/issue_submission_finished_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/issues_listing_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/admin_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/issues_listing_instruction_view.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/config/mimes.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/linkVerification.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/css/autoSuggest.css",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/issueSubmission.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/config/database.php",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/jquery.tipTip.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/issueBox.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript/jquery.elastic.source.js",
+		"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/views/html/header_view.php",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/app.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/LeadersView.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/DashboardView.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/module.xcconfig",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/tiapp.xml",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/iphone/ui/AppTabGroup.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/iphone/ui/DashboardLogoWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/iphone/ui/GuidesLogoWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/iphone/ui/GuideWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/iphone/ui/LogoWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/iphone/ui/ProblemWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/lib/ModalPickerView.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/AreasWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/AreaWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/CreateAreaMapWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/CreateAreaWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/CreateGuideMapWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/CreateGuideWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/CreateProblemMapWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/CreateProblemWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/EditAreaMapWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/EditAreaWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/EditGuideMapWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/EditGuideWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/EditProblemMapWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/EditProblemWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/ISentWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/MediaWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/MyGradeWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/ProblemsWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/ProfileEditWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/ProfileImageWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/SettingsWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/android/ui/CheckinWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/android/ui/SettingsWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/AddProblemImage.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/AddMediaWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/SendView.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/theme.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/GuidesView.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/etc/gps.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/etc/stringMethods.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/build/Debug-iphoneos/WikiBoulder.app/ui/SendView.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/build/Debug-iphoneos/WikiBoulder.app/ui/GuidesView.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/js/relink.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/etc/loginModel.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/build/Debug-iphoneos/WikiBoulder.app/iphone/ui/ProblemWindow.js",
+		"/Users/sundev/.bash_profile",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Info.plist",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/build/Debug-iphoneos/WikiBoulder.app/etc/loginModel.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/description.css",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/build/Debug-iphoneos/WikiBoulder.app/iphone/ui/AppTabGroup.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/build/Debug-iphonesimulator/WikiBoulder.app/iphone/ui/AppTabGroup.js",
+		"/Users/sundev/Desktop/test.html",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/css/webView.css",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/js/media.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/Classes/ASI/ASINetworkQueue.m",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/main.m",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/Info.plist",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/build/iphone/build/Debug-iphonesimulator/WikiBoulder.app/ui/AppTabGroup.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/iphone/ProblemWindow.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/etc/version.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui/components.js",
+		"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/manifest",
+		"/Applications/MAMP/htdocs/TruNorthSplash/application/controllers/welcome.php",
+		"/Applications/MAMP/htdocs/TruNorthSplash/application/config/config.php",
 		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/core/User_Controller.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/forgot_pass_view.php",
-		"/Users/sundev/Desktop/clean_tn_db.sql",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/tiny_mce/themes/advanced/skins/default/content.css",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/css/tiny_mce.css",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/tiny_mce/jquery.tinymce.js",
-		"/Users/sundev/WORK/TruNorth/Intel/question.txt",
-		"/Users/sundev/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
-		"/Users/sundev/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/css/tipTip.css",
-		"/Users/sundev/WORK/TruNorth/RemoteFacilitation/tn_rf_db.sql",
-		"/Users/sundev/Desktop/newUserLinks.sql",
-		"/Users/sundev/Desktop/blu_skye_backup_db.sql",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/export_links_to_excel.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/html/menu_view.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/config.php",
-		"/Users/sundev/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
-		"/Users/sundev/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/routes.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/robots.txt",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/linkVerification.js",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/links_table_view_ajax.php",
 		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/core/MY_Controller.php",
 		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/core/Admin_Controller.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/welcome.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/register_view",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/html/header_view.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/models/login_model.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/libraries/SimpleLoginSecure.php",
 		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/libraries/phpass-0.1/PasswordHash.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/projecto.php",
-		"/Users/sundev/Library/Application Support/Sublime Text 2/Packages/User/JavaScript.sublime-settings",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/.htaccess",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/constants.php",
-		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript/global.js",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/login.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/html/meta_view.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/container_view.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/html/menu_view.php",
 		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/views/html/footer_view.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/css/style.css",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/routes.php",
 		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/autoload.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/config.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/controllers/welcome.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/database.php",
+		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/.htaccess",
 		"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application/config/ion_auth.php",
 		"/Applications/MAMP/htdocs/TheCollective/wp-content/themes/thecollective/home-template.php",
 		"/Applications/MAMP/htdocs/TheCollective/wp-content/themes/thecollective/css/gallery.css",
 		"/Applications/MAMP/htdocs/TheCollective/wp-content/themes/thecollective/nggallery/gallery-sponsors.php",
 		"/Applications/MAMP/htdocs/TheCollective/wp-content/themes/thecollective/TheCollective",
 		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-twit.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/single.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/index.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-ajax.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-lovely.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-blogly.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/style.css",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-homie.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/functions.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/javascript/eyecandy.js",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/javascript/pageLoad.js",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-blog.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-single.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-love.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/404.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-case.php",
-		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/page-about.php"
+		"/Applications/MAMP/htdocs/Brainvise/wp-content/themes/brainvise/single.php"
 	],
 	"find":
 	{
@@ -731,10 +808,21 @@
 		"height": 0.0,
 		"where_history":
 		[
-			"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation",
-			"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/javascript",
-			"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation/application",
-			"/Applications/MAMP/htdocs/TruNorthRemoteFacilitation",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/models",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application/controllers",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/application",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr",
+			"/Users/sundev/Sites/Vibrant_Data_Labs_Mappr/javascript",
+			"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources",
+			"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui",
+			"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources",
+			"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder/Resources/ui",
+			"/Users/sundev/Documents/Titanium Studio Workspace/WikiBoulder",
 			"/Applications/MAMP/htdocs/TundraGear",
 			"/Applications/MAMP/htdocs/TundraGear/skin/frontend/tundragear/default/js",
 			"/Applications/MAMP/htdocs/TundraGear",
@@ -745,137 +833,137 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
-			"login_model",
-			"projects_model",
-			"login_model",
-			"admin_model",
-			"issues_model",
-			"links_model",
-			"trunorthlabs.org",
-			"TruNorth ",
-			"trunorth",
-			"Tru North",
-			"circlePacker",
-			"circlepacker",
-			"circlepacking",
-			"join",
-			".clearer",
-			"feedback",
-			"user-feedback",
-			"user-feed",
-			"<?php",
-			"display:none",
-			"resize",
-			"vimeo_video",
-			"froogaloop",
-			"fancybox",
-			"send()",
-			"row(",
-			"$row(",
-			"tags",
-			"projectId",
-			"excel",
-			"to_excel",
-			"Mappr Issue Submission from link mapping",
-			"#circle-tags",
-			"$('.circle",
-			"$('#circle-tags",
-			".from-instruct-begin",
-			"focal",
-			"total_froms",
-			"strong links",
-			"tipTip",
-			"strong links",
-			"tipTip",
-			".below-circles",
-			"$tot",
-			"tipTip(",
-			"tipTip",
-			"tipTips",
-			"tipTip",
-			"isBegun",
-			"scale",
-			"css",
-			"function",
-			"scrollTo(",
-			"scrollTo",
-			"set2-buttons",
-			"project_registration_view",
-			"set2-buttons",
-			"back-to-mapping",
-			"-1",
-			"issue-box",
-			"inset",
-			"fancybox",
-			"110",
-			"circle-tags",
-			" or ",
-			"or",
-			"showInstructionVideo",
-			"fancybox",
-			"$('.instruction-video-but",
-			"fancybox",
-			"isNewVideo",
-			"$instructionVideo",
-			"showInstructionVideo",
-			"instruction-video-but",
-			"isNewVideo",
-			"here",
-			"circle-title",
-			"fancybox",
-			"circles",
-			".click",
-			"register_view",
-			"leave blank for no change",
-			"feedback",
-			"-webkit-tr",
-			"webkit",
-			"user-feedback-holder",
-			"outgoing-link-but",
-			"grad",
-			"msie",
-			"-300",
-			"182",
-			"-232",
-			"-300",
-			"circles",
-			"video_embed",
+			"bodyEle",
+			"get_link_mapping_in",
 			"link_mapping_info",
-			"close-issues-button",
-			"issue-tags",
-			"run(",
-			"settleend",
-			"sort",
-			"setPosition",
-			"circle",
-			"close-issues",
-			"#000",
-			"setInputTipTip",
-			"tipTip",
-			".issue-box",
-			"issue-curation-box",
-			"change",
+			"13",
+			"textarea",
 			"click",
-			"delete-dd",
-			"small-input-text",
-			"arrow",
-			"goView",
-			"categories",
-			"slideIn",
-			"goEdit",
-			"checkINputs",
-			"setIssueTag",
-			"goEdit",
-			"goView",
-			"data('input",
-			"goViewMode",
-			"goViewModed",
-			"focusout",
+			"tiptip",
+			"Strong Links",
+			"Link Mapping",
+			".csv",
+			"csv_from_result",
+			"join",
+			"h1",
+			"export_links_to_excel",
+			"glaring gap",
+			"issue",
+			"excel",
+			"users",
+			"opening",
+			"issues",
+			"css",
+			"<?",
+			"@tr",
+			"@vi",
+			"@br",
+			"vibrant",
+			"get_admin",
+			"project",
+			"project_registration_view",
+			"description",
+			"get_admin",
+			"Vibran",
+			"project_id",
+			"@",
+			"ISSUE",
+			"issue",
+			"broader",
+			"issue",
+			"issueInd] => 2",
+			"2",
+			"77",
+			"67",
+			"254",
+			"232",
+			"field",
+			"->insert_id()",
+			"codeigniter",
+			"data[0]",
+			"f00",
+			"italic",
+			"small",
+			"h3",
+			"line",
+			"Issue",
+			"issue",
+			"issues",
+			"Attributes",
+			"reduce_tags",
+			"set_up_links",
+			"296374",
+			"current Project ",
 			"openIssue",
-			"close"
+			".unbind",
+			"unbind",
+			"openIssue",
+			"question-background",
+			"tiptip",
+			"tipTip",
+			"console",
+			"border",
+			"bind",
+			"focus",
+			"elastic",
+			"setIssueFocusEvent",
+			"goEditMode",
+			"elastic",
+			"openIssue",
+			"goEditMode",
+			"setIssueFocusEvents",
+			"$(this)",
+			"setIssueFoc",
+			"setIssuEFocusEvents",
+			"setInputsCurVal",
+			"setIssueFocusEvents",
+			"goViewMode",
+			"$inp",
+			"$in",
+			"goViewMode",
+			"(this)",
+			"goViewMode",
+			"setInputTipTip",
+			"title",
+			"border",
+			"closeIssue",
+			"removeInputHovers",
+			"setInputTipTip",
+			"$this",
+			"curTip",
+			"setClosedTip",
+			"closedH",
+			"closedHeight",
+			"this.",
+			"issueTemplate",
+			"$(this)",
+			"$iss",
+			"$inp",
+			"np",
+			"$inp",
+			"slideInIssue",
+			"$in",
+			"$inp",
+			"$th",
+			"$inp",
+			"$issueTemplate",
+			"removeAnIssue",
+			"978",
+			"978D22",
+			"588A9E",
+			"numIssues",
+			"'#02bafe'",
+			"db5bdb",
+			"mouseover",
+			"mouseenter",
+			"issue-name-static",
+			".issue-input",
+			"textarea",
+			"ccc",
+			"262425"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -883,90 +971,61 @@
 		"regex": false,
 		"replace_history":
 		[
-			"Login_model",
-			"Projects_model",
-			"Login_model",
-			"Admin_model",
-			"Issues_model",
-			"Links_model",
-			"vibrantdatalabs.org",
-			"Vibrant Data ",
-			"Vibrant Data",
-			"link-web",
-			"$vimeoContent",
-			"issue-tags",
-			"h2",
-			"animate",
-			"$tN2",
-			"$fN2",
-			"hiddenToNode",
-			"third-",
-			"#scroll",
-			"tgs",
-			"$boxDiv",
-			"reloadIssues",
-			"$remInp",
-			"delete-dd",
-			"Negative",
-			"Positive",
-			"positive",
-			"negative",
-			"REFERENCES `project` (`id`)",
+			".off",
+			"$this.",
+			"db5bdb",
+			"02bafe",
+			"666",
+			"solid #999",
+			"999",
+			"fff",
+			"barColor:theme.appcOrange,\n		backgroundColor:'#fff'",
 			"",
-			"solid #b3b3b3",
-			"1px #b3b3b3",
-			"none",
-			"&lquo;",
-			"(9,",
-			" 13,",
-			"usersFromNodesOld",
-			"nodesOld",
-			"$row2",
-			"userLinks",
-			"certainty",
-			"Cert",
-			"sign",
-			"Si",
-			"userLinksOld",
-			"feedback",
-			"Feedback",
-			"tIt",
-			"fIt",
-			" 11,",
-			"node",
-			"c9f1fd",
-			"fdf7c9",
-			"faef93",
-			"dcdbdb",
-			"fdd9d9",
-			"setIssueColor",
-			"646464",
-			"bababa",
-			"5d5d5d",
-			"ababab",
-			"5d5d5d",
-			"openIssue",
-			"closeInput",
-			"closeIssue",
-			"projectState",
-			"chosen_project",
-			"Link",
-			"link",
-			"Node",
-			"node",
-			"link",
-			"InnoDB",
-			"one-wide-form",
-			"924",
-			"input-box",
-			".menu-buttons",
-			"$em",
-			"numberOfIssuesPerParticipant",
-			"name",
-			"question",
-			"description",
-			"ddf3f9",
-			"public function",
+			"problem",
+			"Problem",
+			"problem",
+			"area",
+			"Area",
+			"area",
+			"\",",
+			"\":\"",
+			"\":",
+			"",
+			"\":\"",
+			"\",",
+			"\",\"",
+			"",
+			"area",
+			"Area",
+			"area",
+			"problem",
+			"Problem",
+			"guides/",
+			"area",
+			"Area",
+			"area",
+			"Area",
+			"json.grade_system",
+			"guide",
+			"Guide",
+			"guide",
+			"gradesAR",
+			"userGrade",
+			"userGradeConverted",
+			"gradePicker.",
+			"json.grades_ar",
+			"createMediaArrayViews",
+			"createMediaView",
+			"theme.imageShadowWidth",
+			"theme.imageBorderWidth",
+			"theme.variableFont",
+			"self.",
+			"curRegionAR",
+			"problemCreateTO",
+			"Ti",
+			"self.",
+			"Send",
+			"send",
 			"$related_posts",
 			"but-static",
 			"-static.png",
@@ -985,13 +1044,528 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "css/style.css",
+					"settings":
+					{
+						"buffer_size": 47616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7184,
+								7184
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7364.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 11434,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										345,
+										362
+									],
+									[
+										726,
+										743
+									],
+									[
+										759,
+										776
+									],
+									[
+										1149,
+										1166
+									],
+									[
+										1475,
+										1492
+									],
+									[
+										1788,
+										1805
+									],
+									[
+										1888,
+										1905
+									],
+									[
+										2165,
+										2182
+									],
+									[
+										2264,
+										2281
+									],
+									[
+										2337,
+										2354
+									],
+									[
+										2366,
+										2383
+									],
+									[
+										2601,
+										2618
+									],
+									[
+										2862,
+										2879
+									],
+									[
+										3196,
+										3213
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								706,
+								706
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 7.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/controllers/links.php",
+					"settings":
+					{
+						"buffer_size": 16806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1828,
+								1847
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/controllers/projects.php",
+					"settings":
+					{
+						"buffer_size": 15429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12556,
+								12556
+							],
+							[
+								12651,
+								12651
+							],
+							[
+								12979,
+								12979
+							],
+							[
+								13222,
+								13222
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/views/issues_listing_view.php",
+					"settings":
+					{
+						"buffer_size": 5311,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3990,
+								3734
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 930.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/views/issues_curation_view.php",
+					"settings":
+					{
+						"buffer_size": 6741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1529,
+								1532
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 398.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/config/mimes.php",
+					"settings":
+					{
+						"buffer_size": 4469,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								768,
+								768
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 11.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		},
 		{
+			"selected": 6,
 			"sheets":
 			[
+				{
+					"buffer": 7,
+					"file": "application/views/project_edit_view.php",
+					"settings":
+					{
+						"buffer_size": 13421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2871,
+								2871
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1064.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/controllers/projects.php",
+					"settings":
+					{
+						"buffer_size": 15429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12859,
+								12859
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5563.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/views/link_mapping_view.php",
+					"settings":
+					{
+						"buffer_size": 14494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6319,
+								6319
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 21.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "javascript/link-mapping.js",
+					"settings":
+					{
+						"buffer_size": 68749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11053,
+								11053
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/models/links_model.php",
+					"settings":
+					{
+						"buffer_size": 19057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								956,
+								956
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "application/models/issues_model.php",
+					"settings":
+					{
+						"buffer_size": 11023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7053,
+								7053
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3542.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "javascript/issueCuration.js",
+					"settings":
+					{
+						"buffer_size": 37805,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3879,
+								3886
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2158.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "application/controllers/issues.php",
+					"settings":
+					{
+						"buffer_size": 5963,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4828,
+								4736
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2268.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "application/models/projects_model.php",
+					"settings":
+					{
+						"buffer_size": 14176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4898,
+								4898
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1884.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1023,7 +1597,7 @@
 		"cols":
 		[
 			0.0,
-			0.516749536759,
+			0.405595168178,
 			1.0
 		],
 		"rows":
@@ -1044,6 +1618,66 @@
 		"selected_items":
 		[
 			[
+				"link",
+				"application/controllers/links.php"
+			],
+			[
+				"projects_",
+				"application/models/projects_model.php"
+			],
+			[
+				"issue",
+				"application/controllers/issues.php"
+			],
+			[
+				"issues_mo",
+				"application/models/issues_model.php"
+			],
+			[
+				"proje",
+				"application/controllers/projects.php"
+			],
+			[
+				"links_",
+				"application/models/links_model.php"
+			],
+			[
+				"project_",
+				"application/views/project_edit_view.php"
+			],
+			[
+				"issuec",
+				"javascript/issueCuration.js"
+			],
+			[
+				"link_ma",
+				"application/views/link_mapping_view.php"
+			],
+			[
+				"project",
+				"application/views/project_edit_view.php"
+			],
+			[
+				"admin_mo",
+				"application/models/admin_model.php"
+			],
+			[
+				"listing_ins",
+				"application/views/issues_listing_instruction_view.php"
+			],
+			[
+				"log",
+				"application/controllers/login.php"
+			],
+			[
+				"admin_view",
+				"application/views/admin_view.php"
+			],
+			[
+				"autos",
+				"css/autoSuggest.css"
+			],
+			[
 				"meta",
 				"application/views/html/meta_view.php"
 			],
@@ -1052,36 +1686,128 @@
 				"application/views/html/header_view.php"
 			],
 			[
-				"link_ma",
-				"application/views/link_mapping_view.php"
+				"guides",
+				"Resources/ui/GuidesView.js"
 			],
 			[
-				"met",
-				"application/views/html/meta_view.php"
+				"area",
+				"Resources/ui/AreaWindow.js"
 			],
 			[
-				"regi",
-				"application/views/register_view.php"
+				"leade",
+				"Resources/ui/LeadersView.js"
 			],
 			[
-				"links_mo",
-				"application/models/links_model.php"
+				"mod",
+				"Resources/lib/ModalPickerView.js"
 			],
 			[
-				"issues_mode",
-				"application/models/issues_model.php"
+				"setting",
+				"Resources/ui/SettingsWindow.js"
 			],
 			[
-				"links",
-				"application/controllers/links.php"
+				"creat",
+				"Resources/ui/CreateProblemWindow.js"
 			],
 			[
-				"login_m",
-				"application/models/login_model.php"
+				"edit",
+				"Resources/ui/EditProblemWindow.js"
 			],
 			[
-				"projects",
-				"application/controllers/projects.php"
+				"addme",
+				"Resources/ui/AddMediaWindow.js"
+			],
+			[
+				"guide",
+				"Resources/iphone/ui/GuideWindow.js"
+			],
+			[
+				"areaw",
+				"Resources/ui/AreaWindow.js"
+			],
+			[
+				"problem",
+				"Resources/iphone/ui/ProblemWindow.js"
+			],
+			[
+				"areas",
+				"Resources/ui/AreasWindow.js"
+			],
+			[
+				"createae",
+				"Resources/ui/CreateAreaWindow.js"
+			],
+			[
+				"probl",
+				"Resources/iphone/ui/ProblemWindow.js"
+			],
+			[
+				"editp",
+				"Resources/ui/EditProblemWindow.js"
+			],
+			[
+				"areawind",
+				"Resources/ui/AreaWindow.js"
+			],
+			[
+				"createguid",
+				"Resources/ui/CreateGuideMapWindow.js"
+			],
+			[
+				"them",
+				"Resources/ui/theme.js"
+			],
+			[
+				"gp",
+				"Resources/etc/gps.js"
+			],
+			[
+				"editguid",
+				"Resources/ui/EditGuideMapWindow.js"
+			],
+			[
+				"edi",
+				"Resources/ui/EditGuideWindow.js"
+			],
+			[
+				"problems",
+				"Resources/ui/ProblemsWindow.js"
+			],
+			[
+				"string",
+				"Resources/etc/stringMethods.js"
+			],
+			[
+				"gps",
+				"Resources/etc/gps.js"
+			],
+			[
+				"theme",
+				"Resources/ui/theme.js"
+			],
+			[
+				"ed",
+				"Resources/ui/EditGuideWindow.js"
+			],
+			[
+				"editprob",
+				"Resources/ui/EditProblemMapWindow.js"
+			],
+			[
+				"moa",
+				"Resources/lib/ModalPickerView.js"
+			],
+			[
+				"send",
+				"Resources/ui/SendView.js"
+			],
+			[
+				"is",
+				"Resources/ui/ISentWindow.js"
+			],
+			[
+				"logi",
+				"Resources/etc/loginModel.js"
 			]
 		],
 		"width": 0.0
@@ -1098,6 +1824,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 185.0,
+	"side_bar_width": 198.0,
 	"status_bar_visible": true
 }

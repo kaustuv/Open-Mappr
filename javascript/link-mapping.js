@@ -45,7 +45,7 @@ $(document).ready(function($) {
 	if($.browser.msie && Number($.browser.version) < 9)
 	{
 		isOldBrowser = true;
-		$.fancybox.open("The browser that you are using is not supported by Vibrant Data's Mappr Application. Please upgrade or choose a different browser.",{
+		$.fancybox.open("The browser that you are using is not supported by the Mappr Application. Please upgrade or choose a different browser.",{
 			maxWidth:600
 		})
 	}
@@ -446,10 +446,10 @@ $(document).ready(function($) {
 		{
 			$('.from-instructions .from-init-heading').hide();
 			$('.from-instructions .from-instruct-begin').fadeIn();
-			var txt = numIss + " issues";
+			var txt = numIss + " nodes";
 			if(numIss == 1)
 			{
-				txt = numIss+" issue";
+				txt = numIss+" node";
 				$('.from-instructions .from-instruct-begin span').text(txt).fadeIn();	
 			} else
 			{
@@ -507,11 +507,9 @@ $(document).ready(function($) {
 		  	{
 		  		//show to nodes
 		  		showToNodes();
-
-		  		
 		  	}
 		  },error: function(er) {
-		  	alert("I'm sorry, there was an issue connecting to the database. Please contact sundev@brainvise.com");
+		  	alert("I'm sorry, there was an issue connecting to the database. Please contact "+adminEmail);
 		  }
 		})
 	}
@@ -524,21 +522,11 @@ $(document).ready(function($) {
 			enter:function() {
 				setTimeout(function() {
 					var mL = $('#tiptip_holder').css('margin-left').replace("px", "")-630;
-					if($.browser.mozilla)
-					{
-						var mL = $('#tiptip_holder').css('margin-left').replace("px", "")-330;
-						$('#tiptip_holder').css({
-							'margin-top':200,
-							'margin-left':mL
-						});
-					} else
-					{
-						var mT = 200;
-						$('#tiptip_holder').css({
-							'margin-left':mL,
-							'margin-top':mT
-						});
-					}
+					var mT = 200;
+					$('#tiptip_holder').css({
+						'margin-left':mL,
+						'margin-top':mT
+					});
 				},10)
 			},
 			content:"Add or remove from your list"
@@ -640,13 +628,9 @@ $(document).ready(function($) {
 					$('.another-issue-but').trigger('mouseenter');
 					setTimeout(function() {
 						$('.another-issue-but').trigger('mouseleave');
-						$('.links-header').trigger('mouseenter');
+						$('.to-node-set').filter(':visible').find('.to-holder').filter(':visible').filter(':first').find('.to-close').trigger('mouseenter');
 						setTimeout(function() {
-							$('.links-header').trigger('mouseleave');
-							$('.to-node-set').filter(':visible').find('.to-holder').filter(':visible').filter(':first').find('.to-close').trigger('mouseenter');
-							setTimeout(function() {
-								$('.to-node-set').filter(':visible').find('.to-holder').filter(':visible').filter(':first').find('.to-close').trigger('mouseleave');
-							},4000);
+							$('.to-node-set').filter(':visible').find('.to-holder').filter(':visible').filter(':first').find('.to-close').trigger('mouseleave');
 						},4000);
 					},4000);
 		    },4000);
@@ -1166,7 +1150,7 @@ $(document).ready(function($) {
 				var fId = $(this).parent().parent().parent().find('.from-id').val();
 				var fInd = $('.from-holder-'+fId).find('.from-index').text();
 				var tInd = $(this).parent().parent().find('.to-index').text();
-				incompleteText += "<li>Your Issue: "+fInd+" to Issue: "+tInd+"</li>";
+				incompleteText += "<li>Your Node: "+fInd+" to Node: "+tInd+"</li>";
 			}
 		})
 
@@ -1240,7 +1224,7 @@ $(document).ready(function($) {
 					//make sure all needed inputs are filled out
 					if($('.issue-name').val() == "" || $('.issue-description').val() == "")
 					{
-						alert("Please fill out at least a name and description for the issue.");
+						alert("Please fill out at least a name and description for the node.");
 						return;
 					}
 					//show saving text
@@ -1254,13 +1238,13 @@ $(document).ready(function($) {
 					  	if(ret == 'true')
 					  	{
 					  		//show success
-					  		$('.saving-anim').text('Issue Saved!').delay(1000).fadeOut(300,function() {
+					  		$('.saving-anim').text('Node Saved!').delay(1000).fadeOut(300,function() {
 					  			//close fancybox
 					  			$.fancybox.close();
 					  		})
 					  	} else
 					  	{
-					  		alert("Error saving issue, please try again later.")
+					  		alert("Error saving node, please try again later.")
 					  	}
 					  }
 					})
@@ -2141,7 +2125,7 @@ $(document).ready(function($) {
 	//close for to's
 	$('.to-close').click(function() {
 		//bring up confirm dialog
-		if(confirm("Are you sure you no longer want to draw any links to this node? Please only do this if you have no knowledge of this issue."))
+		if(confirm("Are you sure you no longer want to draw any links to this node? Please only do this if you have no knowledge of this node."))
 		{
 			//to id
 			var id = $(this).parent().find('.to-id').val();
@@ -2630,7 +2614,7 @@ $(document).ready(function($) {
 			$c = $('.circle');
 		}
 		$c.stop().animate({
-			backgroundColor:'#bff9fa'
+			backgroundColor:'#6fd7fd'
 		})
 	})
 

@@ -1,5 +1,6 @@
 <?php
 
+ini_set("auto_detect_line_endings", true);
 class Projects extends Admin_Controller {
 
 	//vars
@@ -37,7 +38,9 @@ class Projects extends Admin_Controller {
 		$this->view_data['current_project'] = $pId;
 
 		$this->form_validation->set_rules('name', 'Project Name', 'required|trim|xss_clean');
+		$this->form_validation->set_rules('admin_email', 'Admin Email', 'required|trim|valid_email');
 		$this->form_validation->set_rules('description', 'Project Description', 'trim|xss_clean');
+		$this->form_validation->set_rules('registration_message', 'Registration Message', 'trim|xss_clean');
 		$this->form_validation->set_rules('question', 'Project Question', 'required|trim|xss_clean');
 		$this->form_validation->set_rules('numberOfIssuesPerParticipant', '# of Issues/Participant', 'required|trim|xss_clean');
 		$this->form_validation->set_rules('numberOfFromIssuesPerParticipant', '# of From Issues/Participant', 'trim|xss_clean');
@@ -52,8 +55,11 @@ class Projects extends Admin_Controller {
 		{
 			if($this->input->post('name'))
 			{
+				$this->view_data['form_errors'] = 'There were errors. Please scroll down and fix them before saving again.';
 				$this->view_data['default']['name'] = set_value('name');
+				$this->view_data['default']['admin_email'] = set_value('admin_email');
 				$this->view_data['default']['description'] = set_value('description');
+				$this->view_data['default']['registration_message'] = set_value('registration_message');
 				$this->view_data['default']['question'] = set_value('question');
 				$this->view_data['default']['numberOfIssuesPerParticipant'] = set_value('numberOfIssuesPerParticipant');	
 				$this->view_data['default']['numberOfFromIssuesPerParticipant'] = set_value('numberOfFromIssuesPerParticipant');	
@@ -63,7 +69,6 @@ class Projects extends Admin_Controller {
 				$this->view_data['default']['link_mapping_info'] = set_value('link_mapping_info');
 				$this->view_data['default']['video_embed_link_mapping'] = set_value('video_embed_link_mapping');
 			}
-
 			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
 		}
 		else // passed validation proceed to post success logic
@@ -71,12 +76,15 @@ class Projects extends Admin_Controller {
 			// build array for the model
 			$quest = htmlspecialchars_decode(set_value('question'),ENT_QUOTES); 
 			$desc = htmlspecialchars_decode(set_value('description'),ENT_QUOTES);
+			$registration_message = htmlspecialchars_decode(set_value('registration_message'),ENT_QUOTES);
 			$link_info = htmlspecialchars_decode(set_value('link_mapping_info'),ENT_QUOTES);
 			$url = url_title(set_value('name'));
 			$form_data = array(
 						'name' => set_value('name'),
+						'admin_email' => set_value('admin_email'),
 						'url' => $url,
 						'description' => $desc,
+						'registration_message' => $registration_message,
 						'question' => $quest,
 						'numberOfIssuesPerParticipant' => set_value('numberOfIssuesPerParticipant'),
 						'numberOfFromIssuesPerParticipant' => set_value('numberOfFromIssuesPerParticipant'),
@@ -87,9 +95,9 @@ class Projects extends Admin_Controller {
 						);
 			$tag_seed = htmlspecialchars_decode(set_value('tag_seed'),ENT_QUOTES);
 
+			$this->view_data['form_errors'] = 'Project Successfully Saved!';
 			if ($this->Projects_model->update_project_data($form_data,$tag_seed,$pId) == TRUE) // the information has therefore been successfully saved in the db
 			{
-
 				$this->view_data['isProjectSaveSuccess'] = TRUE;
 				//get new data
 				$this->view_data['default'] = $this->Projects_model->get_project_info($pId);
@@ -181,305 +189,14 @@ class Projects extends Admin_Controller {
 	}
 
 
-	public function add_user_attribute()
-	{
-		$pId = $this->input->post('current_project');
-		$oldAt = $this->input->post('user_attr');
-		$newAt = $this->input->post('new_user_attr');
-		$atType = $this->input->post('new_user_attr_type');
-		$this->view_data['current_project'] = $pId;
-
-		//set to global so that callback function can check against
-		//for min and max values if int
-		$this->attribute_type = $atType;
-
-		$this->_set_form_errors();
-
-		if($oldAt != '')
-		{
-			$this->_set_index_data($pId);
-			//using predefined attribute
-			//assign this attribute to this project
-			$this->Projects_model->assign_prev_user_attr_to_project($oldAt,$pId);
-					$this->_set_index_data($pId);
-					//successfully saved to db
-					$this->view_data['isAddUserAttrSuccess'] = TRUE;
-					$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-		} else
-		{
-			//creating new attribute
-			//set error validation
-
-			$this->form_validation->set_rules('new_user_attr', 'Attribute Name', 'required|trim|xss_clean|is_unique[usersAttributes.name]');
-			$this->form_validation->set_rules('new_user_attr_type', 'Attribute Type', 'required|trim|xss_clean');
-			$this->form_validation->set_rules('min_user_attr', 'Min Value', 'trim|integer|xss_clean|callback_min_attr_check');
-			$this->form_validation->set_rules('max_user_attr', 'Max Value', 'trim|integer|xss_clean|callback_max_attr_check');
-
-
-			if ($this->form_validation->run() == FALSE) // validation hasn't been passed
-			{
-
-				$this->_set_index_data($pId);
-				$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-			} else
-			{
-				//successful
-				$form_data = array('name'=>set_value('new_user_attr'),
-													'type'=>set_value('new_user_attr_type'),
-													'min'=>set_value('min_user_attr'),
-													'max'=>set_value('max_user_attr'));
-
-				if($this->Projects_model->assign_new_user_attr_to_project($pId,$form_data) == TRUE)
-				{
-					$this->_set_index_data($pId);
-					//successfully saved to db
-					$this->view_data['isAddUserAttrSuccess'] = TRUE;
-					$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-				} else
-				{
-				$this->view_data['error_message'] = "Error saving to the database. Please try again later.";
-				$this->load_container_with('error_view','ERROR');
-				}
-			}
-		}
-	}
-
-
-	public function delete_user_attribute()
-	{
-		$pId = $this->input->post('current_project');
-		$this->view_data['current_project'] = $pId;
-		$this->_set_form_errors();
-		$atId = $this->input->post('delete_project_user_attr');
-		if($atId == '')
-		{
-			$this->_set_index_data($pId);
-			//didn't choose anything
-			$this->view_data['isDeleteUserAttrError'] = TRUE;
-			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-
-		} else
-		{
-			$this->view_data['deleted_user_attr'] = $this->Projects_model->get_user_attr_by_id($atId);
-			$this->Projects_model->remove_user_attr_from_project($atId,$pId);
-			$this->_set_index_data($pId);
-			$this->view_data['isDeleteUserAttrSuccess'] = TRUE;
-			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-		}
-	}
-
-
-	public function add_node_attribute()
-	{
-		$pId = $this->input->post('current_project');
-		$oldAt = $this->input->post('node_attr');
-		$newAt = $this->input->post('new_node_attr');
-		$atType = $this->input->post('new_node_attr_type');
-		$this->view_data['current_project'] = $pId;
-
-		//set to global so that callback function can check against
-		//for min and max values if int
-		$this->attribute_type = $atType;
-
-		$this->_set_form_errors();
-
-		if($oldAt != '')
-		{
-			$this->_set_index_data($pId);
-			//using predefined attribute
-			//assign this attribute to this project
-			$this->Projects_model->assign_prev_node_attr_to_project($oldAt,$pId);
-					$this->_set_index_data($pId);
-					//successfully saved to db
-					$this->view_data['isAddNodeAttrSuccess'] = TRUE;
-					$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-		} else
-		{
-			//creating new attribute
-			//set error validation
-
-			$this->form_validation->set_rules('new_node_attr', 'Attribute Name', 'required|trim|xss_clean|is_unique[nodesAttributes.name]');
-			$this->form_validation->set_rules('new_node_attr_type', 'Attribute Type', 'required|trim|xss_clean');
-			$this->form_validation->set_rules('min_node_attr', 'Min Value', 'trim|integer|xss_clean|callback_min_attr_check');
-			$this->form_validation->set_rules('max_node_attr', 'Max Value', 'trim|integer|xss_clean|callback_max_attr_check');
-
-
-			if ($this->form_validation->run() == FALSE) // validation hasn't been passed
-			{
-				$this->_set_index_data($pId);
-				$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-			} else
-			{
-				//successful
-				$form_data = array('name'=>set_value('new_node_attr'),
-													'type'=>set_value('new_node_attr_type'),
-													'min'=>set_value('min_node_attr'),
-													'max'=>set_value('max_node_attr'));
-
-				if($this->Projects_model->assign_new_node_attr_to_project($pId,$form_data) == TRUE)
-				{
-					$this->_set_index_data($pId);
-					//successfully saved to db
-					$this->view_data['isAddNodeAttrSuccess'] = TRUE;
-					$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-				} else
-				{
-				$this->view_data['error_message'] = "Error saving to the database. Please try again later.";
-				$this->load_container_with('error_view','ERROR');
-				}
-			}
-		}
-	}
-
-
-	public function delete_node_attribute()
-	{
-		$pId = $this->input->post('current_project');
-		$this->view_data['current_project'] = $pId;
-		$this->_set_form_errors();
-		$atId = $this->input->post('delete_project_node_attr');
-		if($atId == '')
-		{
-			$this->_set_index_data($pId);
-			//didn't choose anything
-			$this->view_data['isDeleteNodeAttrError'] = TRUE;
-			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-
-		} else
-		{
-			$this->view_data['deleted_node_attr'] = $this->Projects_model->get_node_attr_by_id($atId);
-			$this->Projects_model->remove_node_attr_from_project($atId,$pId);
-			$this->_set_index_data($pId);
-			$this->view_data['isDeleteNodeAttrSuccess'] = TRUE;
-			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-		}
-	}
-
-
-	public function add_link_attribute()
-	{
-		$pId = $this->input->post('current_project');
-		$oldAt = $this->input->post('link_attr');
-		$newAt = $this->input->post('new_link_attr');
-		$atType = $this->input->post('new_link_attr_type');
-		$this->view_data['current_project'] = $pId;
-
-		//set to global so that callback function can check against
-		//for min and max values if int
-		$this->attribute_type = $atType;
-
-		$this->_set_form_errors();
-
-		if($oldAt != '')
-		{
-			$this->_set_index_data($pId);
-			//using predefined attribute
-			//assign this attribute to this project
-			$this->Projects_model->assign_prev_link_attr_to_project($oldAt,$pId);
-			$this->_set_index_data($pId);
-			//successfully saved to db
-			$this->view_data['isAddLinkAttrSuccess'] = TRUE;
-			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-		} else
-		{
-			//creating new attribute
-			//set error validation
-
-			$this->form_validation->set_rules('new_link_attr', 'Attribute Name', 'required|trim|xss_clean|is_unique[linksAttributes.name]');
-			$this->form_validation->set_rules('new_link_attr_type', 'Attribute Type', 'required|trim|xss_clean');
-			$this->form_validation->set_rules('min_link_attr', 'Min Value', 'trim|integer|xss_clean|callback_min_attr_check');
-			$this->form_validation->set_rules('max_link_attr', 'Max Value', 'trim|integer|xss_clean|callback_max_attr_check');
-
-
-			if ($this->form_validation->run() == FALSE) // validation hasn't been passed
-			{
-				$this->_set_index_data($pId);
-				$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-			} else
-			{
-				//successful
-				$form_data = array('name'=>set_value('new_link_attr'),
-													'type'=>set_value('new_link_attr_type'),
-													'min'=>set_value('min_link_attr'),
-													'max'=>set_value('max_link_attr'));
-
-				if($this->Projects_model->assign_new_link_attr_to_project($pId,$form_data) == TRUE)
-				{
-					$this->_set_index_data($pId);
-					//successfully saved to db
-					$this->view_data['isAddLinkAttrSuccess'] = TRUE;
-					$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-				} else
-				{
-				$this->view_data['error_message'] = "Error saving to the database. Please try again later.";
-				$this->load_container_with('error_view','ERROR');
-				}
-			}
-		}
-	}
-
-
-	public function delete_link_attribute()
-	{
-		$pId = $this->input->post('current_project');
-		$this->view_data['current_project'] = $pId;
-		$this->_set_form_errors();
-		$atId = $this->input->post('delete_project_link_attr');
-		if($atId == '')
-		{
-			$this->_set_index_data($pId);
-			//didn't choose anything
-			$this->view_data['isDeleteLinkAttrError'] = TRUE;
-			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-
-		} else
-		{
-			$this->view_data['deleted_link_attr'] = $this->Projects_model->get_link_attr_by_id($atId);
-			$this->Projects_model->remove_link_attr_from_project($atId,$pId);
-			$this->_set_index_data($pId);
-			$this->view_data['isDeleteLinkAttrSuccess'] = TRUE;
-			$this->load_container_with('project_edit_view','PROJECT EDIT: '.strtoupper($this->view_data['default']['name']));
-		}
-	}
-
-	public function min_attr_check($str)
-	{
-		if($this->attribute_type == "int" && $str == "")
-		{
-			$this->form_validation->set_message('min_attr_check','Please enter in a min value for the attribute');
-			return FALSE;
-		}
-		return TRUE;
-	}
-
-	public function max_attr_check($str)
-	{
-		if($this->attribute_type == "int" && $str == "")
-		{
-			$this->form_validation->set_message('max_attr_check','Please enter in a max value for the attribute');
-			return FALSE;
-		}
-		return TRUE;
-	}
-
-
 
 	private function _set_form_errors()
 	{
 		$this->view_data['isProjectSaveSuccess'] = FALSE;
 		$this->view_data['isCreateUserSuccess'] = FALSE;
 		$this->view_data['isDeleteUserSuccess'] = FALSE;
-		$this->view_data['isDeleteUserAttrSuccess'] = FALSE;
-		$this->view_data['isDeleteNodeAttrSuccess'] = FALSE;
-		$this->view_data['isDeleteLinkAttrSuccess'] = FALSE;
-		$this->view_data['isAddUserAttrSuccess'] = FALSE;
-		$this->view_data['isAddNodeAttrSuccess'] = FALSE;
-		$this->view_data['isAddLinkAttrSuccess'] = FALSE;
 		$this->view_data['isCreateUserError'] = FALSE;
 		$this->view_data['isDeleteUserError'] = FALSE;
-		$this->view_data['isDeleteUserAttrError'] = FALSE;
-		$this->view_data['isDeleteNodeAttrError'] = FALSE;
-		$this->view_data['isDeleteLinkAttrError'] = FALSE;
 		
 
 		$this->form_validation->set_error_delimiters('<span class="error">Error: ', '</span>');
@@ -493,12 +210,6 @@ class Projects extends Admin_Controller {
 		$this->view_data['users'] = $this->Projects_model->get_users_for_project($pId);
 		$this->view_data['deleted_user'] = "";
 		$this->view_data['new_user_attr'] = "";
-		$this->view_data['user_atts_ar'] = $this->Projects_model->get_user_atts_ar($pId);
-		$this->view_data['project_user_atts'] = $this->Projects_model->get_project_user_atts($pId);
-		$this->view_data['node_atts_ar'] = $this->Projects_model->get_node_atts_ar($pId);
-		$this->view_data['project_node_atts'] = $this->Projects_model->get_project_node_atts($pId);
-		$this->view_data['link_atts_ar'] = $this->Projects_model->get_link_atts_ar($pId);
-		$this->view_data['project_link_atts'] = $this->Projects_model->get_project_link_atts($pId);
 		//get total number of nodes for this project
 		$this->view_data['total_issues'] = $this->Projects_model->get_total_nodes($pId);
 		
@@ -515,7 +226,8 @@ class Projects extends Admin_Controller {
 		$query = $this->db->get();
 
 		//modify query to convert tags to columns
-		$headers = $query->list_fields();
+		$headers = $this->db->list_fields('issues');
+		
 		$result_array = $query->result_array();
 		$results = array();
 		foreach ($result_array as $row) {
@@ -526,6 +238,7 @@ class Projects extends Admin_Controller {
 				$headers[] = $tN;
 			}
 			$isNew = TRUE;
+			$ind = 0;
 			foreach($results as &$row2)
 			{
 				if($row2['id'] == $row['id'])
@@ -533,79 +246,219 @@ class Projects extends Admin_Controller {
 					$isNew = FALSE;
 					if(trim($tN != ""))
 					{
-						$row2[$tN] = 1;	
+
+						$results[$ind][$tN] = 1;	
 					}
 
 				}
+				$ind++;
 			}
 			if($isNew)
-			{;
+			{
 				unset($row['tagName']);
+				$row[$tN] = 1;
 				$results[] = $row;	
 			}
 		}
 		//fill in missing keys in rows
+		$ind = 0;
 		foreach($results as &$row)
 		{
 			foreach($headers as $head)
-			if(array_key_exists($head,$row) == FALSE && trim($head != ""))
 			{
-				$row[$head] = 0;
+				if(array_key_exists($head,$row) == FALSE && trim($head != ""))
+				{
+					$results[$ind][$head] = 0;
+				}	
 			}
+			$ind++;
 		}
 
 
 		//convert to csv
 		$csv =& $this->csv_from_result($headers,$results);
-		//$this->load->helper('file');
-		//write_file(getcwd() . 'temp/issues.csv', $csv);
 		$this->load->helper('download');
-		force_download('issues.csv', $csv);
+		force_download('submitted_nodes.csv', $csv);
 	}
 
-	public function download_participants_csv()
-	{
-		//get all users and insert into participants if there
-		$query = $this->db->get('users');
-		foreach($query->result() as $row)
-		{
-			//get info from each user to possibly enter into participants
-			$id = $row->user_id;
-			//get number of links in mappr
-			$this->db->where('userId',$id);
-			$this->db->select('id');
-			$query2 = $this->db->get('userLinks');
-			$user_number_links = $query2->num_rows();
-			$did_map = true;
-			if($user_number_links == 0)
-			{
-				$did_map = false;
-			}
-			$data = array('links_mapped'=>$user_number_links,
-										'did_map'=>$did_map,
-										'user_last_login'=>$row->user_modified);
 
-			$this->db->where('email',$row->user_email);
-			$query2 = $this->db->get('possible_participants');
-			if($query2->num_rows() == 0)
+	public function download_nodes_csv($pId)
+	{
+		//$pId = 2;
+		$this->db->select('nodes.*, nodeTags.name AS tagName');
+		$this->db->where('projectId',$pId);
+		$this->db->from('nodes');
+		$this->db->join('nodesNodeTags', 'nodesNodeTags.nodeId = nodes.id');
+		$this->db->join('nodeTags','nodeTags.id = nodesNodeTags.tagId');
+		$query = $this->db->get();
+
+		//modify query to convert tags to columns
+		$headers = $this->db->list_fields('nodes');
+
+		$result_array = $query->result_array();
+		$results = array();
+		foreach ($result_array as $row) {
+			//see if column exists as tag name
+			$tN = $row['tagName'];
+			if(in_array($tN,$headers) == FALSE && trim($tN) != "")
 			{
-				//insert
-				$data['email'] = $row->user_email;
-				$data['name'] = $row->first_name . " " . $row->last_name;
-				$this->db->insert('possible_participants',$data);
+				$headers[] = $tN;
+			}
+			$isNew = TRUE;
+			$ind = 0;
+			foreach($results as &$row2)
+			{
+				if($row2['id'] == $row['id'])
+				{
+					$isNew = FALSE;
+					if(trim($tN != ""))
+					{
+
+						$results[$ind][$tN] = 1;	
+					}
+
+				}
+				$ind++;
+			}
+			if($isNew)
+			{
+				unset($row['tagName']);
+				$row[$tN] = 1;
+				$results[] = $row;	
+			}
+		}
+		//fill in missing keys in rows
+		$ind = 0;
+		foreach($results as &$row)
+		{
+			foreach($headers as $head)
+			{
+				if(array_key_exists($head,$row) == FALSE && trim($head != ""))
+				{
+					$results[$ind][$head] = 0;
+				}	
+			}
+			$ind++;
+		}
+
+		//convert to csv
+		$csv =& $this->csv_from_result($headers,$results);
+		$this->load->helper('download');
+		force_download('curated_nodes.csv', $csv);
+	}
+
+	public function upload_nodes_csv($pId)
+	{
+		$config['upload_path'] = 'temp/';
+    $config['allowed_types'] = '*';
+    $config['max_size'] = '5000';
+    $config['file_name'] = 'upload' . time();
+
+    $this->load->library('upload', $config);
+
+    if(!$this->upload->do_upload()) 
+    {
+
+			$this->view_data['upload_error'] = $this->upload->display_errors('<p class="error">','</p>');	
+			$this->edit($pId);
+
+    } else {
+      $file_info = $this->upload->data();
+      $csvfilepath = "temp/" . $file_info['file_name'];
+      //add to db
+      $row = 1;
+			if (($handle = fopen($csvfilepath, "r")) !== FALSE) {
+				//delete all linked tags to nodes
+				$this->db->where('projectId',$pId);
+				$query = $this->db->get('nodes');
+				foreach ($query->result() as $node) {
+					$this->db->where('nodeId',$node->id);
+					$this->db->delete('nodesNodeTags');
+				}
+				//delete all nodes in this project
+				$this->db->where('projectId',$pId);
+				$this->db->delete('nodes');
+				$fields = array();
+				$tags = array();
+		    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+	        $num = count($data);
+	        //set up first row as fields
+	        if($row == 1)
+	        {
+	        	//fields
+		        for ($c=0; $c < 12; $c++) {
+	            $fields[] = $data[$c];
+		        }
+		        //tags
+		        for ($c=12; $c < $num; $c++) {
+		        	$d = $data[$c];
+		        	if($d != '')
+		        	{
+		            $tags[] = $d;
+		        	}
+		        }
+	        } else
+	        {
+	        	$tag_ar = array();
+	        	for($c=0;$c<$num;$c++)
+	        	{
+	        		//don't insert id into data so won't try to add blank id
+	        		if($c < 12 && $fields[$c] != 'id')
+	        		{
+		        		$node_data[$fields[$c]] = $data[$c];
+	        		} else if($data[$c] == 1)
+	        		{
+	        			//add tag of this node to tag db if doesn't exist yet
+	        			$tag_ar[] = trim($tags[$c-12]);
+
+	        		}
+	        	}
+
+	        	//insert or update rows
+	        	$this->db->insert('nodes',$node_data);
+      			$node_id = $this->db->insert_id();
+	        	//add tags for this insert
+	        	for($i=0;$i<count($tag_ar);$i++)
+	        	{
+		        	//first look for tags
+		        	$this->db->limit(1);
+	        		$this->db->where('name',$tag_ar[$i]);
+	        		$query = $this->db->get('nodeTags');
+	        		if($query->num_rows() == 1)
+	        		{
+	        			$tag_id = $query->row('id');
+	        		
+	        		} else
+	        		{
+	        			$this->db->insert('nodeTags',array('name'=>$tag_ar[$i]));
+	        			$tag_id = $this->db->insert_id();
+
+	        		}
+        			//link node to tag
+      				$nodesNode_data = array('tagId'=>$tag_id,
+      																'nodeId'=>$node_id);
+      				$this->db->insert('nodesNodeTags',$nodesNode_data);
+	        	}
+
+	        }
+	        $row++;
+		    }
+		    fclose($handle);
+		    $this->view_data['upload_error'] = "<p class='error'>Successfully uploaded CSV. Change the &ldquo;Current Project State&rdquo; to &ldquo;Link Mapping&rdquo;.</p>";
 
 			} else
 			{
-				//update
-				$this->db->where('email',$row->user_email);
-				$this->db->update('possible_participants',$data);
-
+				//error opening csv
+				$this->view_data['upload_error'] = '<p class="error">Error opening CSV file. Please contact the administrator.</p>';	
 			}
+			//delete csv file
+	    unlink($csvfilepath);
 
+			$this->edit($pId);
+    }
 
-
-		}
 	}
+
 
 	//custom copy from DB_util so I can modify for adding columns
 	function csv_from_result($headers, $results, $delim = ",", $newline = "\n", $enclosure = '"')
@@ -624,7 +477,13 @@ class Projects extends Admin_Controller {
 		// Next blast through the result array and build out the rows
 		foreach ($results as $row)
 		{
-			foreach ($row as $item)
+			//sort row according to headers
+			$new_row = array();
+			foreach($headers as $name)
+			{
+				$new_row[$name] = $row[$name];
+			}
+			foreach ($new_row as $item)
 			{
 				$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $item).$enclosure.$delim;
 			}

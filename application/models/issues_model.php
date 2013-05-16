@@ -13,6 +13,7 @@ class Issues_model extends CI_Model {
 	{
 		$pId = $this->session->userdata('user_project_id');
 		$this->db->where('id',$pId);
+		$this->db->limit(1);
 		$query = $this->db->get('projects');
 		$rAR = $query->result_array();
 		if(isset($rAR[0]))
@@ -27,6 +28,7 @@ class Issues_model extends CI_Model {
   public function get_user_notes()
   {
     $uId = $this->_get_user_id();
+    $this->db->limit(1);
     $this->db->where('user_id',$uId);
     $query = $this->db->get('users');
     $notes = $query->row('notes');
@@ -98,14 +100,15 @@ class Issues_model extends CI_Model {
 			$this->db->where('userId',$form_data['userId']);
 			$this->db->where('projectId',$form_data['projectId']);
 			$this->db->where('id',$form_data['id']);
+			$this->db->limit(1);
 			$this->db->update('issues',$form_data);
 		}
 	
-		//first remove all cats for this id
+		//first remove all tags for this id
 		$this->db->where('issueId',$issueId);
 		$this->db->delete('issuesIssueTags');
 
-		//now deal with categories
+		//now deal with tags
 		$catsAR = explode(',',$cats);
 		for($i=0;$i<count($catsAR);$i++){
 			$cat = $catsAR[$i];
@@ -129,6 +132,7 @@ class Issues_model extends CI_Model {
 			//insert into linking table
 			$this->db->where('tagId',$tagId);
 			$this->db->where('issueId',$issueId);
+			$this->db->limit(1);
 			$query = $this->db->get('issuesIssueTags');
 
 			if($query->num_rows() == 0)
@@ -149,6 +153,7 @@ class Issues_model extends CI_Model {
 		//see if this issue is already in db
 		$this->db->where('projectId',$form_data['projectId']);
 		$this->db->where('id',$form_data['id']);
+		$this->db->limit(1);
 		$query = $this->db->get('nodes');
 		if($query->num_rows() == 0 || $form_data['id'] == '')
 		{
@@ -159,6 +164,7 @@ class Issues_model extends CI_Model {
 			$issueId = $query->row('id');
 			$this->db->where('projectId',$form_data['projectId']);
 			$this->db->where('id',$issueId);
+			$this->db->limit(1);
 			$this->db->update('nodes',$form_data);
 		}
 
@@ -180,6 +186,7 @@ class Issues_model extends CI_Model {
 			}
 			//see if category exists in db
 			$this->db->where('name',$cat);
+			$this->db->limit(1);
 			$query = $this->db->get('nodeTags');
 			if($query->num_rows() == 0)
 			{
@@ -197,6 +204,7 @@ class Issues_model extends CI_Model {
 			//insert into linking table
 			$this->db->where('tagId',$tagId);
 			$this->db->where('nodeId',$issueId);
+			$this->db->limit(1);
 			$query = $this->db->get('nodesNodeTags');
 
 			if($query->num_rows() == 0)
@@ -217,6 +225,7 @@ class Issues_model extends CI_Model {
 			$em = $this->session->userdata('user_email');	
 		}
 		$this->db->where('user_email',$em);
+		$this->db->limit(1);
 		$this->db->select('user_id');
 		$query = $this->db->get('users');
 		$uId = $query->row('user_id');
@@ -230,6 +239,7 @@ class Issues_model extends CI_Model {
 		$this->db->where('userId',$uId);
 		$this->db->where('projectid',$pId);
 		$this->db->where('id',$id);
+		$this->db->limit(1);
 		$this->db->delete('issues');
 		$this->db->where('issueId',$id);
 		$this->db->delete('issuesIssueTags');
@@ -244,6 +254,7 @@ class Issues_model extends CI_Model {
 		$pId = $this->session->userdata('user_project_id');
 		$this->db->where('projectid',$pId);
 		$this->db->where('id',$id);
+		$this->db->limit(1);
 		$this->db->delete('nodes');
 		$this->db->where('nodeId',$id);
 		$this->db->delete('nodesNodeTags');
@@ -252,7 +263,7 @@ class Issues_model extends CI_Model {
 	public function get_project_nodes()
 	{
 		$this->db->where('projectId',$this->session->userdata('user_project_id'));
-		$this->db->order_by('id','asc');
+		$this->db->order_by('issueInd','asc');
 		$query = $this->db->get('nodes');
 		$issue_list = array();
 		foreach($query->result() as $row)
@@ -267,7 +278,7 @@ class Issues_model extends CI_Model {
 			$ar['updateTime'] = $row->updateTime;
 			$ar['isRevisit'] = $row->isRevisit;
 			$ar['notes'] = $row->notes;
-			$ar['isGoal'] = $row->isGoal;
+			//$ar['isGoal'] = $row->isGoal;
 			$ar['issueInd'] = $row->issueInd;
 			//get all tags for issue
 			$this->db->where('nodeId',$id);
@@ -350,8 +361,7 @@ class Issues_model extends CI_Model {
 		
 	}
 
-	//TODO
-	//use join for faster
+	
 	public function get_issue_tags_like($inp)
 	{
 		$pId = $this->session->userdata('user_project_id');
@@ -369,7 +379,7 @@ class Issues_model extends CI_Model {
 			{
 				$tId = $row2->tagId;
 				$this->db->where('id',$tId);
-				//only difference in this function and above
+				$this->db->limit(1);
 				$this->db->like('name',$inp);
 				$query2 = $this->db->get('issueTags');
 				if($query2->num_rows() == 1)
@@ -389,6 +399,7 @@ class Issues_model extends CI_Model {
 		{
 			$tId = $row->tagId;
 			$this->db->where('id',$tId);
+			$this->db->limit(1);
 			$this->db->like('name',$inp);
 			$query2 = $this->db->get('issueTags');
 			if($query2->num_rows() == 1)
@@ -421,6 +432,7 @@ class Issues_model extends CI_Model {
 			{
 				$tId = $row2->tagId;
 				$this->db->where('id',$tId);
+				$this->db->limit(1);
 				//only difference in this function and above
 				$this->db->like('name',$inp);
 				$query2 = $this->db->get('nodeTags');

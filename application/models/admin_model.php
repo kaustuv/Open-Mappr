@@ -32,6 +32,19 @@ class Admin_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	
+	public function get_admin_email()
+	{
+		
+    $pId = $this->session->userdata('user_project_id');
+    $this->db->where('id',$pId);
+    $this->db->select('admin_email');
+    $this->db->limit(1);
+    $query = $this->db->get('projects');
+    return $query->row('admin_email');
+
+	}
+
 	public function get_admin_email_by_id($id)
 	{
 		$this->db->where('user_id',$id);
@@ -47,6 +60,7 @@ class Admin_model extends CI_Model {
 	public function check_is_admin_user($em)
 	{
 		$this->db->where(array('user_email'=>$em,'isAdministrator'=>1));
+		$this->db->limit(1);
 		$query = $this->db->get('users');
 		if($query->num_rows() >= 1)
 		{
@@ -77,6 +91,7 @@ class Admin_model extends CI_Model {
 			//update user data
 			$data = array('isAdministrator'=>1);
 			$this->db->where('user_email',$nUE);
+			$this->db->limit(1);
 			$this->db->update('users',$data);
 			//send email to user to register 
 			//get actual password field for use in string for link
@@ -89,6 +104,7 @@ class Admin_model extends CI_Model {
 			//(will check against pass with slashes removed)
 			$enc_pass = str_replace(array('/','.'),'', $query->row('user_pass'));
 			$this->db->where('user_email',$nUE);
+			$this->db->limit(1);
 			$data = array('user_pass'=>'',
 										'user_register_pass'=>$enc_pass);
 			$this->db->update('users',$data);
@@ -102,10 +118,11 @@ class Admin_model extends CI_Model {
 
 			$this->email->initialize($config);
 
-			$this->email->from('admin@vibrantdatalabs.org', 'Vibrant Data Administrator');
+			$admin_email = $this->Admin_model->get_admin_email();
+			$this->email->from($admin_email, 'Mappr Administrator');
 			$this->email->to($nUE);
 
-			$this->email->subject('Vibrant Data User Registration');
+			$this->email->subject('Mappr User Registration');
 			$this->email->message("You have been registered as an Administrator for Vibrant Data's remote facilitation software.\n" .
 															"To complete your registration, click the link below: " . base_url() . "login/register/" . urlencode($nUE) . '/' . urlencode($enc_pass) . '\n\n' . 
 															"To login again once you have registered, please visit the following url: " . base_url());	
@@ -117,6 +134,7 @@ class Admin_model extends CI_Model {
 	public function delete_project($pId)
 	{
 		$this->db->where('id',$pId);
+		$this->db->limit(1);
 		$this->db->delete('projects');
 		return TRUE;
 	}
@@ -182,19 +200,6 @@ class Admin_model extends CI_Model {
 	{
 		$this->db->order_by('name','asc');
 		$query = $this->db->get('projects');
-		//TODO
-		//only let admin go to page if one of the active users for step
-		/*$returnAR = array();
-		foreach ($query as $row) 
-		{
-			if($row->projectState == 2)
-			{
-				$returnAR[] = $row;
-			} else 
-			{
-				//get current project
-			}
-		}*/
 		return $query->result_array();
 	}
 

@@ -29,6 +29,7 @@ class Login_model extends CI_Model {
 	 */
 	public function check_registration($em,$pass)
 	{
+		$this->db->limit(1);
 		$this->db->where(array('user_email'=>urldecode($em),
 											'user_register_pass'=>urldecode($pass)));
 		$query = $this->db->get('users');
@@ -39,6 +40,18 @@ class Login_model extends CI_Model {
 		{
 			return FALSE;
 		}
+	}
+
+	public function get_admin_email()
+	{
+
+    $pId = $this->session->userdata('user_project_id');
+    $this->db->where('id',$pId);
+    $this->db->select('admin_email');
+    $this->db->limit(1);
+    $query = $this->db->get('projects');
+    return $query->row('admin_email');
+
 	}
 
 	public function get_number_of_users_projects()
@@ -86,6 +99,7 @@ class Login_model extends CI_Model {
 		}
 		$projAtsAR = array();
 		//get user id for email
+		$this->db->limit(1);
 		$this->db->where('user_email',$em);
 		$query = $this->db->get('users');
 		$uId = $query->row('user_id');
@@ -93,41 +107,6 @@ class Login_model extends CI_Model {
 		$projAtsAR['last_name'] = $query->row('last_name');
 
 
-		//now get attributes for this project
-
-		//is admin, so no project id necessarily
-		if($pId == '' || count($pId) == 0)
-		{
-			return $projAtsAR;
-		}
-
-		$this->db->where('projectId',$pId);
-		$query = $this->db->get('usersProjectsAttributes');
-		foreach($query->result() as $row)
-		{
-			//get attribute id
-			$atId = $row->userAttrId;
-			//now store attribute parameters in array
-			$this->db->where('id',$atId);
-			$query2 = $this->db->get('usersAttributes');
-			$curAt = $query2->row();
-
-			//check to see if already a value for this user
-			$this->db->where('userId',$uId);
-			$this->db->where('attributeId',$atId);
-			$this->db->select('attributeValue');
-			$query2 = $this->db->get('usersAttributesValues');
-			if($query2->num_rows() == 0)
-			{
-				$curAt->value = '';
-			} else
-			{
-				$curAt->value = $query2->row('attributeValue');	
-			}
-
-			$projAtsAR['inputs'][] = $curAt;
-
-		}
 		return $projAtsAR;
 	}
 
@@ -138,6 +117,7 @@ class Login_model extends CI_Model {
 		{
 			$em = $this->session->userdata('user_email');	
 		}
+		$this->db->limit(1);
 		$this->db->where('user_email',$em);
 		$this->db->select('user_id');
 		$query = $this->db->get('users');
@@ -153,6 +133,7 @@ class Login_model extends CI_Model {
 
 	public function set_project_id_from_url($url)
 	{
+		$this->db->limit(1);
 		$this->db->where('url',$url);
 		$query = $this->db->get('projects');
 		if($query->num_rows() == 0)
@@ -167,6 +148,7 @@ class Login_model extends CI_Model {
 	public function get_name_of_project()
 	{
 		$pId = $this->session->userdata('user_project_id');
+		$this->db->limit(1);
 		$this->db->where('id',$pId);
 		$query = $this->db->get('projects');
 		return $query->row('name');
@@ -212,6 +194,16 @@ class Login_model extends CI_Model {
 		return $pId;
 	}
 
+	public function get_registration_message()
+	{
+		$pId = $this->session->userdata('user_project_id');
+		$this->db->where('id',$pId);
+		$this->db->limit(1);
+		$this->db->select('registration_message');
+		$query = $this->db->get('projects');
+		return $query->row('registration_message');
+	}
+
 	public function get_project_state_url()
 	{
 		$pId = $this->get_project_id();
@@ -230,7 +222,7 @@ class Login_model extends CI_Model {
 	}
 
 
-	public function set_user_info($form_data,$em,$pass,$fN,$lN,$pId)
+	public function set_user_info($em,$pass,$fN,$lN,$pId)
 	{
 		$data = array('first_name'=>$fN,
 									'last_name'=>$lN,
@@ -247,44 +239,17 @@ class Login_model extends CI_Model {
 		//so can't click on email link again if registering for first time
 		$rand = random_string('alnum', 8);
 		$data['user_register_pass'] = $rand;
-		
+		$this->db->limit(1);
 		$this->db->where('user_email',$em);
 		$this->db->update('users',$data);
 
 		//get id of user with this email
+		$this->db->limit(1);
 		$this->db->where('user_email',$em);
 		$this->db->select('user_id');
 		$query = $this->db->get('users');
 		$uId = $query->row('user_id');
 
-		//now update or insert form data into usersAttributesValues table
-		foreach($form_data as $key=>$value)
-		{
-			//first check to see if user and project has a value for this attribute
-			//$key = (number) $key;
-			$this->db->where('attributeId',$key);
-			$this->db->where('projectId',$pId);
-			$this->db->where('userId',$uId);
-			$this->db->select('id');
-			$query = $this->db->get('usersAttributesValues');
-			$data = array('projectId'=>$pId,
-										'userId'=>$uId,
-										'attributeId'=>$key,
-										'attributeValue'=>$value);
-			if($query->num_rows() == 0)
-			{
-				//insert
-				$this->db->insert('usersAttributesValues',$data);
-				
-			} else
-			{
-				//update
-				$this->db->where('attributeId',$key);
-				$this->db->where('projectId',$pId);
-				$this->db->where('userId',$uId);
-				$this->db->update('usersAttributesValues',$data);
-			}
-		}
 		return TRUE;
 	}
 
@@ -334,11 +299,13 @@ class Login_model extends CI_Model {
 		$config['crif'] = '\r\n';
 		$config['wordwrap'] = TRUE;
 
+		$admin_email = $this->get_admin_email();
+
 		//send email to user to register 
-		$this->email->from('admin@vibrantdatalabs.org', 'Vibrant Data Administrator');
+		$this->email->from($admin_email, 'Mappr Administrator');
 		$this->email->to($em);
 
-		$this->email->subject('Vibrant Data User Password Reset');
+		$this->email->subject('Mappr User Password Reset');
 		$this->email->message("Click on the link below to reset your password:\n\n " . base_url() . "login/register/" . urlencode($em) . '/' . urlencode($enc_pass));	
 
 		$this->email->send();
@@ -396,11 +363,13 @@ class Login_model extends CI_Model {
 		$config['crif'] = '\r\n';
 		$config['wordwrap'] = TRUE;
 
+		$admin_email = $this->get_admin_email();
+
 		//send email to user to register 
-		$this->email->from('admin@vibrantdatalabs.org', 'Vibrant Data Administrator');
+		$this->email->from($admin_email, 'Mappr Administrator');
 		$this->email->to($em);
 
-		$this->email->subject('Vibrant Data Registration for: ' . $this->get_name_of_project());
+		$this->email->subject('Mappr Registration for: ' . $this->get_name_of_project());
 		$this->email->message("Click on the link below to register for this project: \n\n " . base_url() . "login/register/" . urlencode($em) . '/' . urlencode($enc_pass) . "/" . $pId);	
 		$this->email->send();
 
@@ -413,6 +382,7 @@ class Login_model extends CI_Model {
 	public function check_if_not_confirmed($em)
 	{
 		$this->db->where('user_email',$em);
+		$this->db->limit(1);
 		$query = $this->db->get('users');
 		if(($query->row('isConfirmed') == TRUE && $query->row('user_pass') != "") || $query->row('isConfirmed') == FALSE)
 		{
@@ -436,6 +406,7 @@ class Login_model extends CI_Model {
 		$this->db->simple_query('UPDATE ' . 'users'  . ' SET user_last_login = NOW() WHERE user_id = ' . $this->_get_user_id());
 
 		//Set session data
+		$this->db->limit(1);
 		$this->db->where('user_email',$em);
 		$query = $this->db->get('users');
 		$user_data = $query->row_array();

@@ -1,31 +1,7 @@
 <div class='top-space'></div>
-<h1 style='margin-left:0px;'>Hi!</h1>
-<p>Thanks for helping us map the ‘ecosystem’ of Vibrant Data. </p>
-<p>YOUR expert experience and perception is critical to this project.</p>
-<br/>
-<p>By participating, you’re also helping us develop an open complex problem mapping platform to better understand the world’s most pressing problems.</p>
-<br/>
-<p>Here you and other experts will help us convert a 'laundry list' of critical issues related to Vibrant Data into a complex 'ecosystem' of where and how those issues influence one another. </p>
-<br/>
-<p>From the network structure of that collectively-mapped ecosystem we hope to identify a subset of core challenges that if solved could unleash an egalitarian Vibrant Data revolution.</p>
-<br/>
-<p>To do that we need human brain power from experts like you and others.</p>
-<p>If you know someone else who would be an amazing contributor, please contact us at <a href="mailto:participate@vibrantdata.org">participate@vibrantdata.org</a>. </p>
-<br/>
-<p>We realize this is work on your part, and we thank you for your time to help us and others change the world. </p>
-<br/>
-<p>If you have ANY questions please don’t hesitate to contact me at <a href="mailto:eric@vibrantdatalabs.org">eric@vibrantdatalabs.org</a>.</p>
-<br/>
-<p>We realize this is work on your part, and we thank you for your time to help us and others change the world. </p>
-<br/>
-<br/>
-<p>Sincerely,</p>
-<br/>
-<p>eric l berlow, founder Vibrant Data Labs</p>
-<br/>
-<br/>
+<?php echo $registration_message;?>
 <div class='centerer'>
-<?php // Change the css classes to suit your needs    
+<?php 
 
 $attributes = array('class' => 'left-form one-wide-form single-form narrow-form');
 echo form_open('login', $attributes); ?>

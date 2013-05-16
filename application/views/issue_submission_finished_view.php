@@ -3,5 +3,5 @@
 </div>
 	<h1>Issue Submission has been closed</h1>
 <div>
-<p>Please wait till the workshop with Vibrant Data Labs to submit any more issues.</p>
+<p>Please wait till the next stage of the Mappr to submit any more issues.</p>
 </div>

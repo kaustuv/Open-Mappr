@@ -11,6 +11,7 @@
 	var totFroms = <?php echo $total_froms?>;
 	var totNodes = <?php echo count($to_nodes)?>;
 	var linkMapInstructions = <?php echo json_encode($link_mapping_instructions)?>;
+	var adminEmail = "<?php echo $admin_email;?>";
 </script>
 
 <div id='top-space'>
@@ -33,7 +34,7 @@
 
 
 <!--CIRCLES FOR CHOOSING LINKS BASED ON SUBSETS-->
-<h1 id='circle-title' class='zero'>Below are <?php echo count($subset_tags)?> major categories of critical issues in the Vibrant Data Ecosystem.<br/>Select up to 10 issues that interest you most from any one or more of these categories. Fewer is fine, you can always add more later.<br/><span class='below-circles'>Or if you prefer, click <a href='#random' class='random-froms-but'>here</a> and we'll choose <?php echo $total_froms?> for you!</span></h1>
+<h1 id='circle-title' class='zero'>Below are <?php echo count($subset_tags)?> major categories of critical nodes in the <?php echo $project_name;?> Ecosystem.<br/>Select at least <?php echo $total_froms?> nodes that interest you most from any one or more of these categories. Fewer is fine, you can always add more later.<br/><span class='below-circles'>Or if you prefer, click <a href='#random' class='random-froms-but'>here</a> and we'll choose <?php echo $total_froms?> for you!</span></h1>
 <div id='circle-tags'>
 	<?php $i = 1;?>
 	<?php foreach($subset_tags as $key=>$value):?>
@@ -53,22 +54,22 @@
 <!--ISSUE LISTING TO SEND TO EMAIL-->
 <div style='display:none;'>
 	<div id='issue-submission' class='single-box issue-box link-mapping-issue-box' style='display:block;'>
-		<h2 style='margin:-10px 0 10px;'>Add a new issue to be curated and added to Link Mapping</h2>
+		<h2 style='margin:-10px 0 10px;'>Add a new node to be curated and added to Link Mapping</h2>
 		<div class='input'>
 			<form id='issue-form'>
-				<label class='title-label'>Short issue title <span class='parenth'>(<50 characters)</span></label>
-				<input class='issue-input issue-name shadowy' name='name' type='text' value="" title='Provide a short descriptive title for this issue'/>
+				<label class='title-label'>Short node title <span class='parenth'>(<50 characters)</span></label>
+				<input class='issue-input issue-name shadowy' name='name' type='text' value="" title='Provide a short descriptive title for this node'/>
 					<label>Description <span class='parenth'>(<250 Words)</span></label>
-				  <?php echo form_textarea( array( 'name' => 'description', 'class'=>'issue-input issue-description shadowy', 'title'=>'Describe and define this issue in more detail. Why did you choose it? What does it influence? Is this a major constraint or an enabler?', 'rows' => '5', 'cols' => '80' ) )?>
+				  <?php echo form_textarea( array( 'name' => 'description', 'class'=>'issue-input issue-description shadowy', 'title'=>'Describe and define this node in more detail. Why did you choose it? What does it influence? Is this a major constraint or an enabler?', 'rows' => '5', 'cols' => '80' ) )?>
 				  <br/>
 					<label>Units <span class='parenth'>(Optional <25 Words)</span></label>
-					<input name='units' type='text' class='issue-input issue-units shadowy' title='How would you measure a change in this issue? (optional)' value=''/>
+					<input name='units' type='text' class='issue-input issue-units shadowy' title='How would you measure a change in this node? (optional)' value=''/>
 				  <br/>
 					<label>Tags <span class='parenth'>(up to 5, separated by commas)</span></label>
-					<input name='categories' type='text' class='issue-input issue-tags shadowy' title='What broader tags or keywords, if any, help define this issue or place it in context? If not applicable or you are uncertain, just enter "N/A"' value=''/>
+					<input name='categories' type='text' class='issue-input issue-tags shadowy' title='What broader tags or keywords, if any, help define this node or place it in context? If not applicable or you are uncertain, just enter "N/A"' value=''/>
 					<div class='clearer'></div>
 					<div class='right'>
-						<div class='saving-anim'>Saving Issue...</div>
+						<div class='saving-anim'>Saving Node...</div>
 						<input id='issue-submit-but' type='submit' class='submit-but save-button' value='Save' onclick='return false;' />
 					</div>
 					<div class='clearer'></div>
@@ -122,7 +123,7 @@
 			<div class='finished-links-but submit-but'>I&lsquo;m done</div>
 			<div class='finish-later-but submit-but'>I&lsquo;ll finish later</div>
 		</div>
-		<div class='another-issue-but submit-but' title='Find a glaring gap in the list? Submit a new issue.'>Submit New Issue</div>
+		<div class='another-issue-but submit-but' title='Find a glaring gap in the list? Submit a new node.'>Submit New Node</div>
 	</div>
 	<div class='set2-buttons'>
 		<div class='back-to-mapping submit-but'>Back to Mapping</div>
@@ -131,7 +132,7 @@
 <!--LINK MAPPING-->
 <div id='link-mapping'>
 	<div id='arrow-titles'>
-		<h1>My List</h1><h1 class='links-header' title='What influences what? Just draw strong links that you feel confident about.'>Strong Links</h1><h1 class='right to-header'>Complete List</h1>
+		<h1>My Nodes</h1><h1 class='links-header'>Links</h1><h1 class='right to-header'>Full Node List</h1>
 	</div>
 	<div id='arrow-filters'>
 		<div>
@@ -165,13 +166,13 @@
 	<div class='from-instructions'>
 		<?php if($total_froms == 0):?>
 
-		<h1 class='from-init-heading'>SELECT ISSUES FROM THE LEFT THAT YOU KNOW MOST ABOUT. CLICK ON THE CIRCLES TO SELECT MORE ISSUES FROM ANOTHER CATEGORY.</h1>
+		<h1 class='from-init-heading'>SELECT NODES FROM THE LEFT THAT YOU KNOW MOST ABOUT. CLICK ON THE CIRCLES TO SELECT MORE NODES FROM ANOTHER CATEGORY.</h1>
 		<?php else:?>
-		<h1 class='from-init-heading'>SELECT UP TO <?php echo $total_froms?> ISSUES FROM THE LEFT THAT YOU KNOW MOST ABOUT. CLICK ON THE CIRCLES TO SELECT MORE ISSUES FROM ANOTHER CATEGORY.</h1>
+		<h1 class='from-init-heading'>SELECT UP TO <?php echo $total_froms?> NODES FROM THE LEFT THAT YOU KNOW MOST ABOUT. CLICK ON THE CIRCLES TO SELECT MORE NODES FROM ANOTHER CATEGORY.</h1>
 		<?php endif;?>
 		<div class='from-instruct-begin'>
-			<h1 class='init'>You have selected <span>1 issue</span>.</h1>
-			<h1 class='after'>Please wait, loading issues...</h1>
+			<h1 class='init'>You have selected <span>1 node</span>.</h1>
+			<h1 class='after'>Please wait, loading nodes...</h1>
 			<div class='from-finished-holder'>
 				<a href='#' class='submit-but from-instruct-finished'>I'M READY TO MAP LINKS!</a>
 			</div>

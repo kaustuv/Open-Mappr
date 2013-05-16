@@ -16,6 +16,7 @@ class Projects_model extends CI_Model {
 	public function get_project_info($pId)
 	{
 		$this->db->where('id',$pId);
+		$this->db->limit(1);
 		$query = $this->db->get('projects');
 		$rAR = $query->result_array();
 		//also get project states
@@ -165,9 +166,7 @@ class Projects_model extends CI_Model {
 			$tot_parts = count($participants);
 			//total issues going to be looked at
 			$tot_overlap_iss = $issPerPart*$tot_parts;
-			//get number of issues each part should do so each issue is dealt with
-			$issDiv = floor($tot_issues/$tot_parts);
-			$issRem = $tot_issues%$tot_parts;
+			
 			//array for remembering user issues
 			$usersIssAR = array();
 			//offset in case issues duplicated to user
@@ -333,13 +332,15 @@ class Projects_model extends CI_Model {
 					$query = $this->db->get('projectStates');
 					$stateName = $query->row('name');
 
+					$admin_email = $this->get_admin_email();
+
 					//send email to user to register 
-					$this->email->from('admin@vibrantdatalabs.org', 'Vibrant Data Administrator');
+					$this->email->from($admin_email, 'Mappr Administrator');
 					$this->email->to($em);
 
 					
-					$this->email->subject("Vibrant Data Labs' Project: ".$pName);
-					$this->email->message("You have been registered as a User for the " . $stateName . " phase of TruNorth's project:\n\n".$pName."\n\n" .
+					$this->email->subject("Mappr Project: ".$pName);
+					$this->email->message("You have been registered as a User for the " . $stateName . " phase of project:\n\n".$pName."\n\n" .
 																	"Please login here with your current account email to begin: " . base_url() . "login");	
 
 					$this->email->send();
@@ -361,12 +362,14 @@ class Projects_model extends CI_Model {
 					$query = $this->db->get('projectStates');
 					$stateName = $query->row('name');
 
+					$admin_email = $this->get_admin_email();
+
 					//send email to user letting know joined current project
-					$this->email->from('admin@vibrantdatalabs.org', 'Vibrant Data Administrator');
+					$this->email->from($admin_email, 'Mappr Administrator');
 					$this->email->to($em);
 
-					$this->email->subject("TruNorth's Project: ".$pName);
-					$this->email->message("You have been registered as a User for the " . $stateName . " phase of TruNorth's project:\n\n".$pName."\n\n" .
+					$this->email->subject("Mappr Project: ".$pName);
+					$this->email->message("You have been registered as a User for the " . $stateName . " phase of project:\n\n".$pName."\n\n" .
 																	"Please login here with your current account email to begin: " . base_url() . "login");	
 
 					$this->email->send();
@@ -417,22 +420,37 @@ class Projects_model extends CI_Model {
 				$this->db->where('id',$pState);
 				$query = $this->db->get('projectStates');
 				$stateName = $query->row('name');
+
+				$admin_email = $this->get_admin_email();
+
 				//send email to user to register 
-				$this->email->from('admin@vibrantdatalabs.org', 'Vibrant Data Administrator');
+				$this->email->from($admin_email, 'Mappr Administrator');
 				$this->email->to($em);
 
-				$this->email->subject('Vibrant Data User Registration for: '.$pName);
-				$this->email->message("You have been registered as a User for the " . $stateName . " phase of TruNorth's project:\n\n".$pName."\n\n" .
+				$this->email->subject('Mappr User Registration for: '.$pName);
+				$this->email->message("You have been registered as a User for the " . $stateName . " phase of project:\n\n".$pName."\n\n" .
 															"To complete your registration, click the link below: " . base_url() . "login/register/" . urlencode($em) . "/" . urlencode($enc_pass) . '/' . $pId . "\n\n" . 
 															"To login again once you have registered, please visit the following url: " . base_url());	
 
 				$this->email->send();
-				//echo base_url() . "login/register/" . urlencode($em) . "/" . urlencode($enc_pass) . '/' . $pId;
 				
 			}
 
 		}
 		return TRUE;
+	}
+
+	
+	public function get_admin_email()
+	{
+		
+    $pId = $this->session->userdata('user_project_id');
+    $this->db->where('id',$pId);
+    $this->db->select('admin_email');
+    $this->db->limit(1);
+    $query = $this->db->get('projects');
+    return $query->row('admin_email');
+
 	}
 
 
@@ -458,283 +476,6 @@ class Projects_model extends CI_Model {
 	}
 
 
-	//
-	//
-	///////GETS FOR CREATING ATTRIBUTES////////
-
-	public function get_user_atts_ar($pId)
-	{
-		$query = $this->db->get('usersAttributes');
-		$attsAR = array();
-		foreach($query->result() as $row)
-		{
-			$id = $row->id;
-			$this->db->where('userAttrId',$id);
-			$this->db->where('projectId',$pId);
-			$query2 = $this->db->get('usersProjectsAttributes');
-			if($query2->num_rows() == 0)
-			{
-				$attsAR[] = $row;
-			}
-		}
-		return $attsAR;
-	}
-
-	//user atts for a specific project
-	public function get_project_user_atts($pId)
-	{
-		//get list of attributes from table that 
-		//are used in this project
-		$this->db->where('projectId',$pId);
-		$query = $this->db->get('usersProjectsAttributes');
-		$pUAAR = array();
-		foreach($query->result() as $row)
-		{
-			$id = $row->userAttrId;
-			$this->db->where('id',$id);
-			$query2 = $this->db->get('usersAttributes');
-			$pUAAR[] = $query2->row();
-		}
-		return $pUAAR;
-	}
-
-	public function get_node_atts_ar($pId)
-	{
-		$query = $this->db->get('nodesAttributes');
-		$attsAR = array();
-		foreach($query->result() as $row)
-		{
-			$id = $row->id;
-			$this->db->where('nodeAttrId',$id);
-			$this->db->where('projectId',$pId);
-			$query2 = $this->db->get('nodesProjectsAttributes');
-			if($query2->num_rows() == 0)
-			{
-				$attsAR[] = $query->row();
-			}
-		}
-		return $attsAR;
-	}
-
-	//node atts for specific project
-	public function get_project_node_atts($pId)
-	{
-		//get list of attributes from table that 
-		//are used in this project
-		$this->db->where('projectId',$pId);
-		$query = $this->db->get('nodesProjectsAttributes');
-		$pUAAR = array();
-		foreach($query->result() as $row)
-		{
-			$id = $row->nodeAttrId;
-			$this->db->where('id',$id);
-			$query2 = $this->db->get('nodesAttributes');
-			$pUAAR[] = $query2->row();
-		}
-		return $pUAAR;
-	}
-
-	public function get_link_atts_ar($pId)
-	{
-		$query = $this->db->get('linksAttributes');
-		$attsAR = array();
-		foreach($query->result() as $row)
-		{
-			$id = $row->id;
-			$this->db->where('linkAttrId',$id);
-			$this->db->where('projectId',$pId);
-			$query2 = $this->db->get('linksProjectsAttributes');
-			if($query2->num_rows() == 0)
-			{
-				$attsAR[] = $query->row();
-			}
-		}
-		return $attsAR;
-	}
-
-	//link atts for specific project
-	public function get_project_link_atts($pId)
-	{
-		//get list of attributes from table that 
-		//are used in this project
-		$this->db->where('projectId',$pId);
-		$query = $this->db->get('linksProjectsAttributes');
-		$pUAAR = array();
-		foreach($query->result() as $row)
-		{
-			$id = $row->linkAttrId;
-			$this->db->where('id',$id);
-			$query2 = $this->db->get('linksAttributes');
-			$pUAAR[] = $query2->row();
-		}
-		return $pUAAR;
-	}
-
-	public function get_user_attr_by_id($atId)
-	{
-		$this->db->where('id',$atId);
-		$this->db->select('name');
-		$query = $this->db->get('usersAttributes');
-		return $query->row('name');
-	}
-
-	public function get_node_attr_by_id($atId)
-	{
-		$this->db->where('id',$atId);
-		$this->db->select('name');
-		$query = $this->db->get('nodesAttributes');
-		return $query->row('name');
-	}
-
-	public function get_link_attr_by_id($atId)
-	{
-		$this->db->where('id',$atId);
-		$this->db->select('name');
-		$query = $this->db->get('linksAttributes');
-		return $query->row('name');
-	}
-
-	//
-	//
-	//SETS FOR CREATING/DELETING ATTRIBUTES
-	
-
-	public function assign_prev_user_attr_to_project($oldAt,$pId)
-	{
-		//check to make sure not already in db
-		$data = array('projectId'=>$pId,
-									'userAttrId'=>$oldAt);
-		$query = $this->db->get_where('usersProjectsAttributes',$data);
-		if($query->num_rows() == 0)
-		{
-			$this->db->insert('usersProjectsAttributes',$data);	
-		}
-		return TRUE;
-	}
-
-	public function assign_new_user_attr_to_project($pId,$form_data)
-	{
-		//first insert new attribute to db
-		$this->db->insert('usersAttributes',$form_data);
-
-		//then assign this id to usersProjectsAttributes
-		$atId = $this->db->insert_id();
-		$data = array('projectId'=>$pId,
-		              'userAttrId'=>$atId);
-		$this->db->insert('usersProjectsAttributes',$data);	
-		return TRUE;
-	}
-
-	public function remove_user_attr_from_project($atId,$pId)
-	{
-		$this->db->where('userAttrId',$atId);
-		$this->db->where('projectId',$pId);
-		$this->db->delete('usersProjectsAttributes');
-
-		$this->db->where('userAttrId',$atId);
-		$query = $this->db->get('usersProjectsAttributes');
-		if($query->num_rows() == 0)
-		{
-			//TODO:
-			//remove this section once enable foreign keys
-			//also remove attribute
-			$this->db->where('id',$atId);
-			$this->db->delete('usersAttributes');
-		}
-		return TRUE;
-	}
-
-
-	public function assign_prev_node_attr_to_project($oldAt,$pId)
-	{
-		//check to make sure not already in db
-		$data = array('projectId'=>$pId,
-									'nodeAttrId'=>$oldAt);
-		$query = $this->db->get_where('nodesProjectsAttributes',$data);
-		if($query->num_rows() == 0)
-		{
-			$this->db->insert('nodesProjectsAttributes',$data);	
-		}
-		return TRUE;
-	}
-
-	public function assign_new_node_attr_to_project($pId,$form_data)
-	{
-		//first insert new attribute to db
-		$this->db->insert('nodesAttributes',$form_data);
-
-		//then assign this id to usersProjectsAttributes
-		$atId = $this->db->insert_id();
-		$data = array('projectId'=>$pId,
-		              'nodeAttrId'=>$atId);
-		$this->db->insert('nodesProjectsAttributes',$data);	
-		return TRUE;
-	}
-
-	public function remove_node_attr_from_project($atId,$pId)
-	{
-		$this->db->where('nodeAttrId',$atId);
-		$this->db->where('projectId',$pId);
-		$this->db->delete('nodesProjectsAttributes');
-
-		$this->db->where('nodeAttrId',$atId);
-		$query = $this->db->get('nodesProjectsAttributes');
-		if($query->num_rows() == 0)
-		{
-			//TODO:
-			//remove this section once enable foreign keys
-			//also remove attribute
-			$this->db->where('id',$atId);
-			$this->db->delete('nodesAttributes');
-		}
-		return TRUE;
-	}
-
-
-	public function assign_prev_link_attr_to_project($oldAt,$pId)
-	{
-		//check to make sure not already in db
-		$data = array('projectId'=>$pId,
-									'linkAttrId'=>$oldAt);
-		$query = $this->db->get_where('linksProjectsAttributes',$data);
-		if($query->num_rows() == 0)
-		{
-			$this->db->insert('linksProjectsAttributes',$data);	
-		}
-		return TRUE;
-	}
-
-	public function assign_new_link_attr_to_project($pId,$form_data)
-	{
-		//first insert new attribute to db
-		$this->db->insert('linksAttributes',$form_data);
-
-		//then assign this id to usersProjectsAttributes
-		$atId = $this->db->insert_id();
-		$data = array('projectId'=>$pId,
-		              'linkAttrId'=>$atId);
-		$this->db->insert('linksProjectsAttributes',$data);	
-		return TRUE;
-	}
-
-	public function remove_link_attr_from_project($atId,$pId)
-	{
-		$this->db->where('linkAttrId',$atId);
-		$this->db->where('projectId',$pId);
-		$this->db->delete('linksProjectsAttributes');
-
-		$this->db->where('linkAttrId',$atId);
-		$query = $this->db->get('linksProjectsAttributes');
-		if($query->num_rows() == 0)
-		{
-			//TODO:
-			//remove this section once enable foreign keys
-			//also remove attribute
-			$this->db->where('id',$atId);
-			$this->db->delete('linksAttributes');
-		}
-		return TRUE;
-	}
 
 	public function get_total_nodes($pId)
 	{

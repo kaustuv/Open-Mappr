@@ -13,7 +13,7 @@ ul.as-selections.no-shadowy {
 }
 
 ul.as-selections.no-shadowy:hover li.as-selection-item {
-	color:#978D22;
+	color:#db5bdb;
 }
 
 .as-results {
@@ -50,7 +50,7 @@ ul.as-selections li.as-selection-item a.as-close {
   margin: -1px 0 2px 0px;
 	padding: 0px 2px 0;
 	cursor: pointer;
-	color: #588A9E;
+	color: #02bafe;
 	font-size: 13px;
 	-webkit-transition: color .1s ease-in;
 }
@@ -60,7 +60,7 @@ ul.as-selections li.as-selection-item.blur {
 }
 
 ul.as-selections li.as-selection-item.blur a.as-close {
-	color: #588A9E;
+	color: #02bafe;
 }
 
 ul.as-selections li:hover.as-selection-item {
@@ -68,20 +68,20 @@ ul.as-selections li:hover.as-selection-item {
 }
 
 ul.as-selections li:hover.as-selection-item a.as-close {
-	color: #978D22;
+	color: #db5bdb;
 }
 
 
 ul.as-selections li.as-selection-item.selected {
-	border-color: #588A9E;
+	border-color: #02bafe;
 }
 
 ul.as-selections li.as-selection-item a:hover.as-close {
-	color: #978D22;
+	color: #db5bdb;
 }
 
 ul.as-selections li.as-selection-item a:active.as-close {
-	color: #978D22;
+	color: #db5bdb;
 }
 
 ul.as-selections li.as-original {
@@ -133,17 +133,17 @@ li.as-message {
 
 li.as-result-item.active {
 	background:rgb(245,245,245);
-	color: #978D22;
+	color: #db5bdb;
 }
 
 li.as-result-item em { 
 	font-style: normal; 
 	padding: 0 2px;
-	color: #588A9E;
+	color: #02bafe;
 }
 
 li.as-result-item.active em { 
-	color: #978D22;
+	color: #db5bdb;
 }
 
 ul.as-selections li.as-selection-item {
@@ -167,10 +167,10 @@ ul.as-selections li.as-original input {
 
 ul.as-selections {
 	
-	-webkit-box-shadow:inset 0px 0px 1px 1px #ccc;
+	/*-webkit-box-shadow:inset 0px 0px 1px 1px #ccc;
 	-moz-box-shadow:inset 0px 0px 1px 1px #ccc;
 	box-shadow:inset 0px 0px 1px 1px #ccc;
-	border:1px solid #b3b3b3;
+	border:1px solid #b3b3b3;*/
 }
 
 /* Opera Hacks  */
