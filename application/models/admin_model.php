@@ -41,7 +41,14 @@ class Admin_model extends CI_Model {
     $this->db->select('admin_email');
     $this->db->limit(1);
     $query = $this->db->get('projects');
-    return $query->row('admin_email');
+    if($query->num_rows() == 0)
+    {
+    	$email = "admin@vibrantdatalabsmappr.com";
+    } else
+    {
+    	$email = $query->row('admin_email');
+    }
+    return $email;
 
 	}
 
