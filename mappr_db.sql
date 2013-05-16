@@ -219,6 +219,12 @@ CREATE TABLE `users` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` VALUES(103, 'First', 'User', 'new@vibrantdatalabs.org', '$P$BGrh4i6vauoa4UiueAtgFbA7kugIz11', 'dCjyUiOK', '2012-12-22 12:03:31', '2012-12-22 12:03:31', '2012-12-22 12:03:31', 1, 1, 0, '');
+
 -- --------------------------------------------------------
 
 --
