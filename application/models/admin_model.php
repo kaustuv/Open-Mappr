@@ -43,7 +43,7 @@ class Admin_model extends CI_Model {
     $query = $this->db->get('projects');
     if($query->num_rows() == 0)
     {
-    	$email = "admin@vibrantdatalabsmappr.com";
+    	$email = "admin";
     } else
     {
     	$email = $query->row('admin_email');
