@@ -1,22 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.5
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 22, 2012 at 12:14 PM
--- Server version: 5.1.44
--- PHP Version: 5.3.2
+-- Generation Time: May 16, 2013 at 09:59 AM
+-- Server version: 5.5.25
+-- PHP Version: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+SET time_zone = "+00:00";
 
 --
--- Database: `mappr_os`
+-- Database: `mappr_v2`
 --
 
 -- --------------------------------------------------------
@@ -35,12 +30,7 @@ CREATE TABLE `issues` (
   `issueOrderNum` int(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `issues`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=245 ;
 
 -- --------------------------------------------------------
 
@@ -55,12 +45,7 @@ CREATE TABLE `issuesIssueTags` (
   PRIMARY KEY (`id`),
   KEY `tagId` (`tagId`),
   KEY `issueId` (`issueId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `issuesIssueTags`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3894 ;
 
 -- --------------------------------------------------------
 
@@ -72,100 +57,7 @@ CREATE TABLE `issueTags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `issueTags`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `links`
---
-
-CREATE TABLE `links` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `linkId` int(11) NOT NULL,
-  `modified` datetime NOT NULL,
-  `projectId` int(11) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `issueFromId` int(11) NOT NULL,
-  `issueToId` int(11) NOT NULL,
-  `sign` tinyint(1) NOT NULL,
-  `strengthShort` tinyint(1) NOT NULL,
-  `strengthLong` tinyint(1) NOT NULL,
-  `strength` decimal(2,1) NOT NULL,
-  `strengthCertainty` tinyint(1) NOT NULL,
-  `strengthComment` text NOT NULL,
-  `comments` text NOT NULL,
-  `isFlagged` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `links`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `linksAttributes`
---
-
-CREATE TABLE `linksAttributes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
-  `type` varchar(32) NOT NULL,
-  `min` tinyint(1) NOT NULL,
-  `max` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `linksAttributes`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `linksAttributesValues`
---
-
-CREATE TABLE `linksAttributesValues` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) NOT NULL,
-  `attributeId` int(11) NOT NULL,
-  `attributeValue` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `userId` (`userId`,`attributeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `linksAttributesValues`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `linksProjectsAttributes`
---
-
-CREATE TABLE `linksProjectsAttributes` (
-  `projectId` int(11) NOT NULL,
-  `linkAttrId` int(11) NOT NULL,
-  KEY `projectId` (`projectId`,`linkAttrId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `linksProjectsAttributes`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=220 ;
 
 -- --------------------------------------------------------
 
@@ -184,57 +76,12 @@ CREATE TABLE `nodes` (
   `units` varchar(512) NOT NULL,
   `issueType` tinyint(2) NOT NULL,
   `isRevisit` tinyint(1) NOT NULL,
-  `isGoal` tinyint(1) NOT NULL,
   `notes` text NOT NULL,
   `updateTime` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `nodes`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nodesAttributes`
---
-
-CREATE TABLE `nodesAttributes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
-  `type` varchar(32) NOT NULL,
-  `min` tinyint(1) NOT NULL,
-  `max` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `nodesAttributes`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nodesAttributesValues`
---
-
-CREATE TABLE `nodesAttributesValues` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) NOT NULL,
-  `attributeId` int(11) NOT NULL,
-  `attributeValue` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `userId` (`userId`,`attributeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `nodesAttributesValues`
---
-
+  KEY `projectId` (`projectId`),
+  KEY `projectId_2` (`projectId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=469 ;
 
 -- --------------------------------------------------------
 
@@ -247,29 +94,7 @@ CREATE TABLE `nodesNodeTags` (
   `tagId` int(11) NOT NULL,
   `nodeId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `nodesNodeTags`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nodesProjectsAttributes`
---
-
-CREATE TABLE `nodesProjectsAttributes` (
-  `projectId` int(11) NOT NULL,
-  `nodeAttrId` int(11) NOT NULL,
-  KEY `projectId` (`projectId`,`nodeAttrId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `nodesProjectsAttributes`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10672 ;
 
 -- --------------------------------------------------------
 
@@ -281,38 +106,7 @@ CREATE TABLE `nodeTags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `nodeTags`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `possible_participants`
---
-
-CREATE TABLE `possible_participants` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `organization` varchar(128) NOT NULL,
-  `website` varchar(128) NOT NULL,
-  `expertise` text NOT NULL,
-  `interest` text NOT NULL,
-  `twitter_handle` varchar(128) NOT NULL,
-  `did_map` tinyint(1) NOT NULL,
-  `links_mapped` int(6) NOT NULL,
-  `user_last_login` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `possible_participants`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=239 ;
 
 -- --------------------------------------------------------
 
@@ -332,13 +126,10 @@ CREATE TABLE `projects` (
   `video_embed` text NOT NULL,
   `link_mapping_info` text NOT NULL,
   `video_embed_link_mapping` text NOT NULL,
+  `admin_email` varchar(128) NOT NULL,
+  `registration_message` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `projects`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -353,12 +144,7 @@ CREATE TABLE `projectsIssueTags` (
   PRIMARY KEY (`id`),
   KEY `tagId` (`tagId`),
   KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `projectsIssueTags`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=651 ;
 
 -- --------------------------------------------------------
 
@@ -371,15 +157,7 @@ CREATE TABLE `projectStates` (
   `name` varchar(64) NOT NULL,
   `link` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `projectStates`
---
-
-INSERT INTO `projectStates` VALUES(1, 'Issue Listing', 'issues/listing_instructions');
-INSERT INTO `projectStates` VALUES(2, 'Issue List Curation', 'issues/curation');
-INSERT INTO `projectStates` VALUES(3, 'Remote Link Mapping', 'links/mapping');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -394,12 +172,7 @@ CREATE TABLE `userDeletedToNodes` (
   `nodeId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `userDeletedToNodes`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -415,28 +188,13 @@ CREATE TABLE `userLinks` (
   `issueToId` int(11) NOT NULL,
   `comment` text NOT NULL,
   `sign` tinyint(1) NOT NULL DEFAULT '-9',
-  `strength` tinyint(1) NOT NULL DEFAULT '-9',
-  `certainty` tinyint(1) NOT NULL DEFAULT '-9',
   `modified` datetime NOT NULL,
   `num_observers` int(2) NOT NULL DEFAULT '1',
   `tot_observers` int(2) NOT NULL DEFAULT '1',
-  `min_strength` int(1) NOT NULL,
-  `max_strength` int(1) NOT NULL,
-  `med_strength` int(1) NOT NULL,
-  `min_sign` int(1) NOT NULL,
-  `max_sign` int(1) NOT NULL,
-  `med_sign` int(1) NOT NULL,
-  `min_certainty` int(1) NOT NULL,
-  `max_certainty` int(1) NOT NULL,
-  `med_certainty` int(1) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `userLinks`
---
-
+  KEY `projectId` (`projectId`),
+  KEY `userId` (`userId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7807 ;
 
 -- --------------------------------------------------------
 
@@ -459,55 +217,7 @@ CREATE TABLE `users` (
   `category` int(11) NOT NULL,
   `notes` text NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=104 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` VALUES(103, 'First', 'User', 'new@vibrantdatalabs.org', '$P$BGrh4i6vauoa4UiueAtgFbA7kugIz11', 'dCjyUiOK', '2012-12-22 12:03:31', '2012-12-22 12:03:31', '2012-12-22 12:03:31', 1, 1, 0, '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usersAttributes`
---
-
-CREATE TABLE `usersAttributes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
-  `type` varchar(32) NOT NULL,
-  `min` tinyint(1) NOT NULL,
-  `max` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `usersAttributes`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usersAttributesValues`
---
-
-CREATE TABLE `usersAttributesValues` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `projectId` int(11) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `attributeId` int(11) NOT NULL,
-  `attributeValue` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `userId` (`userId`,`attributeId`),
-  KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `usersAttributesValues`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
 
 -- --------------------------------------------------------
 
@@ -524,12 +234,7 @@ CREATE TABLE `usersChosenFromNodes` (
   `isBegun` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `usersChosenFromNodes`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=602 ;
 
 -- --------------------------------------------------------
 
@@ -544,12 +249,7 @@ CREATE TABLE `usersFromNodes` (
   `projectId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `projectId` (`projectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `usersFromNodes`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=304 ;
 
 -- --------------------------------------------------------
 
@@ -565,29 +265,7 @@ CREATE TABLE `usersProjects` (
   PRIMARY KEY (`id`),
   KEY `projectId` (`projectId`),
   KEY `usersprojects_ibfk_2` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `usersProjects`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usersProjectsAttributes`
---
-
-CREATE TABLE `usersProjectsAttributes` (
-  `projectId` int(11) NOT NULL,
-  `userAttrId` int(11) NOT NULL,
-  KEY `projectId` (`projectId`,`userAttrId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `usersProjectsAttributes`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=110 ;
 
 --
 -- Constraints for dumped tables
@@ -606,28 +284,10 @@ ALTER TABLE `issuesIssueTags`
   ADD CONSTRAINT `issuesissuetags_ibfk_1` FOREIGN KEY (`issueId`) REFERENCES `issues` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `links`
---
-ALTER TABLE `links`
-  ADD CONSTRAINT `links_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `linksProjectsAttributes`
---
-ALTER TABLE `linksProjectsAttributes`
-  ADD CONSTRAINT `linksprojectsattributes_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `nodes`
 --
 ALTER TABLE `nodes`
   ADD CONSTRAINT `nodes_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `nodesProjectsAttributes`
---
-ALTER TABLE `nodesProjectsAttributes`
-  ADD CONSTRAINT `nodesprojectsattributes_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `projectsIssueTags`
@@ -642,12 +302,6 @@ ALTER TABLE `userLinks`
   ADD CONSTRAINT `userlinks_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `usersAttributesValues`
---
-ALTER TABLE `usersAttributesValues`
-  ADD CONSTRAINT `usersattributesvalues_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `usersFromNodes`
 --
 ALTER TABLE `usersFromNodes`
@@ -659,9 +313,3 @@ ALTER TABLE `usersFromNodes`
 ALTER TABLE `usersProjects`
   ADD CONSTRAINT `usersprojects_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usersprojects_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `usersProjectsAttributes`
---
-ALTER TABLE `usersProjectsAttributes`
-  ADD CONSTRAINT `usersprojectsattributes_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
