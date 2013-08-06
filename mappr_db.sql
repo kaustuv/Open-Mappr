@@ -167,6 +167,16 @@ CREATE TABLE IF NOT EXISTS `projectStates` (
 
 -- --------------------------------------------------------
 
+
+--
+-- Dumping data for table `projectStates`
+--
+
+INSERT INTO `projectStates` (`id`, `name`, `link`) VALUES
+(1, 'Node Submission', 'issues/listing_instructions'),
+(2, 'Node List Curation', 'issues/curation'),
+(3, 'Remote Link Mapping', 'links/mapping');
+
 --
 -- Table structure for table `userDeletedToNodes`
 --
